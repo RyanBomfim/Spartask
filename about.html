@@ -1,74 +1,393 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"></script>
+   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
-    <title>Sobre nós | SparTask</title>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <title>Home | SparTask</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    /* Linha vertical central */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: #0d6efd;
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1rem 2rem;
+      box-sizing: border-box;
+    }
+
+    /* Circulo indicador */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 1.2rem;
+      width: 24px;
+      height: 24px;
+      background: #0d6efd;
+      border: 4px solid #121212;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    /* Lado esquerdo */
+    .timeline-item.left {
+      left: 0;
+      text-align: right;
+      padding-right: 3rem;
+    }
+
+    .timeline-item.left::before {
+      right: -12px;
+    }
+
+    /* Lado direito */
+    .timeline-item.right {
+      left: 50%;
+      text-align: left;
+      padding-left: 3rem;
+    }
+
+    .timeline-item.right::before {
+      left: -12px;
+    }
+
+    .timeline-item h3 {
+      color: #0d6efd;
+      font-weight: 700;
+    }
+
+    .timeline-item p {
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+
+    /* Cards da equipe */
+    .team-section {
+      max-width: 900px;
+      margin: 3rem auto 6rem;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .team-section h2 {
+      color: #0d6efd;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .team-member-card {
+      background: #212529;
+      border: none;
+      border-radius: 12px;
+      color: #eee;
+      box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .team-member-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(13, 110, 253, 0.7);
+    }
+
+    .team-member-card .card-body {
+      padding: 1.5rem;
+    }
+
+    .team-member-card h5 {
+      color: #0d6efd;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-member-card p {
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+
+    .team-member-card a {
+      color: #0d6efd;
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      transition: color 0.2s;
+    }
+
+    .team-member-card a:hover {
+      color: #66aaff;
+    }
+
+
+    /* --- RESPONSIVIDADE --- */
+
+    /* Em telas pequenas: timeline vira coluna única */
+    @media (max-width: 767.98px) {
+      .timeline {
+        max-width: 100%;
+        padding: 0 1rem;
+        margin: 2rem auto;
+      }
+
+      /* Remove linha vertical */
+      .timeline::before {
+        left: 8px;
+        transform: none;
+        width: 4px;
+        height: 100%;
+      }
+
+      .timeline-item {
+        width: 100%;
+        padding-left: 2.5rem !important;
+        padding-right: 1rem !important;
+        text-align: left !important;
+        margin-bottom: 2rem;
+      }
+
+      .timeline-item.left,
+      .timeline-item.right {
+        left: 0 !important;
+      }
+
+      .timeline-item::before {
+        top: 0.5rem;
+        left: 0;
+        right: auto;
+        border: 4px solid #121212;
+      }
+    }
+
+    /* Ajustes para header e footer nos dispositivos móveis */
+    @media (max-width: 576px) {
+      header .col-md-2,
+      header .col-md-3,
+      header .col-md-2.text-end {
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: center !important;
+        margin-bottom: 0.5rem;
+      }
+
+      header .nav {
+        justify-content: center !important;
+        margin: 1rem 0;
+      }
+    }
+
+
+  </style>
 </head>
+
 <body>
 
   <!-- /// Cabeçalho /// -->
 
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3
-         border-bottom">
-    <div class="col-md-2  mb-md-0">
-      <a href="/"
-        class="d-inline-flex link-body-emphasis text-decoration-none m-2 justify-content-center align-items-center">
-        <img class="img-fluid d-flex mx-3" src="assets/img/logo.png" alt="Logo Spartask" width="40" height="40">
-        SparTask
+  <header id="header" class="header d-flex align-items-center fixed-top ">
+    <div
+      class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-end">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto">
+        <img src="assets/img/logo.png" alt="logo">
+
       </a>
-    </div>
 
-    <ul class="nav nav-underline col-12 col-md-auto mb-2 mx-3 justify-content-center mb-md-0">
-      <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-      <li><a href="services.html" class="nav-link px-2">Serviços</a></li>
-      <li><a href="about.html" class="nav-link px-2">Sobre nós</a></li>
-    </ul>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">Sobre</a></li>
+          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Cadastre-se</button>
 
-    <div class="col-md-3 ms-5">
-      <div class="form-control row d-flex">
-        <div class="col">Pesquisar</div>
-        <div class="col text-end"><i class="fa fa-solid fa-search"></i>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-md-2 text-end m-2">
-      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Cadastre-se</button>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+
     </div>
   </header>
 
 
-   <!-- /// Footer /// -->
+  <br><br><br>
 
-   <section class="finaly">
+  <section class="container my-5" id="sobre-projeto" style="max-width: 900px;">
+  <div class="row align-items-center gy-4">
+    <!-- Texto e descrição -->
+    <div class="col-md-6">
+      <h2 class="text-primary fw-bold mb-3">Sobre o Projeto</h2>
+      <p class=" fs-5">
+        O SparTask é uma plataforma inovadora, idealizada para conectar prestadores de serviços domésticos a clientes de forma rápida, segura e eficiente.
+        Desenvolvido com foco em acessibilidade, usabilidade e tecnologia moderna, nasceu da necessidade de facilitar o dia a dia das pessoas, promovendo confiança e qualidade.
+      </p>
+      <p class=" fs-6">
+        Nosso time multidisciplinar trabalha constantemente para aprimorar a plataforma, garantindo a melhor experiência para todos os usuários.
+      </p>
+
+
+    </div>
+
+    <!-- Imagem -->
+    <div class="col-md-6 text-center">
+      <img src="assets/img/logo.png" alt="Imagem representando o projeto SparTask" class="img-fluid rounded shadow" style="max-height: 320px; object-fit: contain;">
+    </div>
+  </div>
+</section>
+
+
+  <!-- /// Linha do tempo /// -->
+  <section class="timeline" aria-label="Linha do tempo da SparTask">
+    <div class="timeline-item left" tabindex="0" aria-describedby="desc1">
+      <h3><i class="fa fa-lightbulb me-2"></i> Ideia Inicial</h3>
+      <p id="desc1">
+        Em 2023, durante o curso técnico na ETEC do Maracanã, surgiu a ideia da SparTask, visando facilitar a contratação de serviços domésticos.
+      </p>
+    </div>
+    <div class="timeline-item right" tabindex="0" aria-describedby="desc2">
+      <h3><i class="fa fa-code me-2"></i> Desenvolvimento</h3>
+      <p id="desc2">
+        Durante meses, a equipe trabalhou no desenvolvimento da plataforma, focando em usabilidade, acessibilidade e segurança.
+      </p>
+    </div>
+    <div class="timeline-item left" tabindex="0" aria-describedby="desc3">
+      <h3><i class="fa fa-users me-2"></i> Formação da Equipe</h3>
+      <p id="desc3">
+        Montamos um time multidisciplinar com desenvolvedores, designers e gestores para garantir a qualidade do projeto.
+      </p>
+    </div>
+    <div class="timeline-item right" tabindex="0" aria-describedby="desc4">
+      <h3><i class="fa fa-rocket me-2"></i> Lançamento</h3>
+      <p id="desc4">
+        Em 2024, a SparTask foi apresentada como projeto final de TCC na ETEC, recebendo elogios e reconhecimento.
+      </p>
+    </div>
+    <div class="timeline-item left" tabindex="0" aria-describedby="desc5">
+      <h3><i class="fa fa-star me-2"></i> Missão</h3>
+      <p id="desc5">
+        Facilitar a vida das pessoas conectando prestadores de serviços domésticos confiáveis e clientes de forma simples e segura.
+      </p>
+    </div>
+  </section>
+
+  <!-- /// Equipe /// -->
+  <section class="team-section">
+    <h2>Nossa Equipe</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card team-member-card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Ryan Bomfim</h5>
+            <p class="card-text">Desenvolvedor Front-end e Designer</p>
+            <div>
+              <a href="https://linkedin.com/in/ryanbomfim" target="_blank" rel="noopener" aria-label="LinkedIn Ryan">
+                <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/ryanbomfim" target="_blank" rel="noopener" aria-label="GitHub Ryan">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card team-member-card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Maria Silva</h5>
+            <p class="card-text">Desenvolvedora Back-end e Banco de Dados</p>
+            <div>
+              <a href="#" class="text-primary me-3" aria-label="LinkedIn Maria"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#" aria-label="GitHub Maria"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card team-member-card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">João Santos</h5>
+            <p class="card-text">Analista de Sistemas e Testes</p>
+            <div>
+              <a href="#" class="text-primary me-3" aria-label="LinkedIn João"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#" aria-label="GitHub João"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card team-member-card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Ana Oliveira</h5>
+            <p class="card-text">Gerente de Projeto e Documentação</p>
+            <div>
+              <a href="#" class="text-primary me-3" aria-label="LinkedIn Ana"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="#" aria-label="GitHub Ana"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ <!-- /// Footer /// -->
+
+  <section class="finaly">
     <div class="container">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-body-secondary">SparTask &copy; 2025 </p>
 
-        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <a href="/"
+          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
           <img class="bi me-2" width="40" height="40" src="assets/img/logo.png">
         </a>
 
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">
-            <i class="fa fa-solid fa-instagram" style="font-size: 30px;"></i></a></li>
+              <i class="fa fa-solid fa-instagram" style="font-size: 30px;"></i></a></li>
           <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">
-            <i class="fa fa-solid fa-whatsapp" style="font-size: 30px;"></i></a></li>
+              <i class="fa fa-solid fa-whatsapp" style="font-size: 30px;"></i></a></li>
 
         </ul>
       </footer>
     </div>
   </section>
 
+  <script src="assets/js/script.js" defer></script>
+
 </body>
+
 </html>
