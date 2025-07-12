@@ -1,0 +1,539 @@
+/* --------------------------------------------------
+   IMPORTAÇÃO DE FONTES
+-------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* --------------------------------------------------
+   RESET E ESTILO GLOBAL
+-------------------------------------------------- */
+* {
+  font-family: 'Lexend', 'Courier New', Courier, monospace;
+  margin: 0;
+  text-decoration: none;
+  color: black;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+header {
+  font-size: 15px !important;
+}
+
+/* --------------------------------------------------
+   HEADER GLOBAL
+-------------------------------------------------- */
+.header {
+  --background-color: #ffffff;
+  color: var(--default-color);
+  padding: 20px 0;
+  transition: all 0.5s;
+  z-index: 997;
+}
+
+.header .header-container {
+  background-color: var(--background-color);
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.5s;
+}
+
+.header .logo {
+  position: absolute;
+  inset: 0 auto 0 0;
+  padding: 0 20px;
+}
+
+.header .logo img {
+  max-height: 40px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 26px;
+  margin: 0;
+  font-weight: 500;
+  color: #322522;
+  font-family: "Inter";
+}
+
+.header .btn-getstarted,
+.header .btn-getstarted:focus {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-size: 14px;
+  padding: 8px 20px;
+  margin: 0 5px 0 30px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.header .btn-getstarted:hover,
+.header .btn-getstarted:focus:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+/* Header ao rolar */
+.scrolled .header {
+  padding: 0;
+  background-color: var(--background-color);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------------------------
+   MENU DE NAVEGAÇÃO - DESKTOP
+-------------------------------------------------- */
+.navmenu a {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navmenu a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #000;
+  transition: width 0.3s ease;
+}
+
+.navmenu a:hover::after {
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .navmenu {
+    padding: 0;
+  }
+
+  .navmenu ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navmenu li {
+    position: relative;
+  }
+
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    padding: 18px 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-family: var(--nav-font);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+  }
+
+  .navmenu a i {
+    font-size: 12px;
+    margin-left: 5px;
+    line-height: 0;
+    transition: 0.3s;
+  }
+
+  .navmenu li:hover>a,
+  .navmenu .active {
+    color: var(--nav-hover-color);
+  }
+
+  .navmenu .dropdown ul {
+    visibility: hidden;
+    position: absolute;
+    left: 14px;
+    top: 130%;
+    background: var(--nav-dropdown-background-color);
+    padding: 10px 0;
+    margin: 0;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+  }
+
+  .navmenu .dropdown:hover>ul {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+  .navmenu .dropdown ul a {
+    padding: 10px 20px;
+    font-size: 15px;
+    text-transform: none;
+    color: var(--nav-dropdown-color);
+  }
+
+  .navmenu .dropdown ul a:hover {
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .dropdown .dropdown ul {
+    top: 0;
+    left: -90%;
+    visibility: hidden;
+  }
+
+  .navmenu .dropdown .dropdown:hover>ul {
+    top: 0;
+    left: -100%;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------
+   MENU DE NAVEGAÇÃO - MOBILE
+-------------------------------------------------- */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: var(--nav-color);
+    font-size: 28px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .navmenu {
+    z-index: 9997;
+    padding: 0;
+  }
+
+  .navmenu ul {
+    display: none;
+    list-style: none;
+    position: absolute;
+    inset: 60px 20px 20px 20px;
+    padding: 10px 0;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    z-index: 9998;
+    overflow-y: auto;
+  }
+
+  .navmenu a {
+    color: var(--nav-dropdown-color);
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: var(--nav-font);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.3s;
+  }
+
+  .navmenu a i {
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .navmenu a i:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .navmenu .dropdown ul {
+    position: static;
+    display: none;
+    background: var(--nav-dropdown-background-color);
+    padding: 10px 0;
+    margin: 10px 20px;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  }
+
+  .navmenu .dropdown>.dropdown-active {
+    display: block;
+    background-color: rgba(33, 37, 41, 0.03);
+  }
+
+  .mobile-nav-active {
+    overflow: hidden;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #fff;
+    font-size: 32px;
+    z-index: 9999;
+  }
+
+  .mobile-nav-active .navmenu {
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 37, 41, 0.8);
+  }
+
+  .mobile-nav-active .navmenu>ul {
+    display: block;
+  }
+}
+
+/* --------------------------------------------------
+   CARROSSEL / FEATURETTES (Bootstrap custom)
+-------------------------------------------------- */
+.carousel {
+  margin-bottom: 4rem;
+}
+
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+
+.carousel-item {
+  height: 32rem;
+  /* Original duplicado: preferi o menor (32rem > 48rem) */
+}
+
+.marketing .col-lg-4 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.marketing .col-lg-4 p {
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
+}
+
+.featurette-divider {
+  margin: 5rem 0;
+}
+
+.featurette-heading {
+  letter-spacing: -0.05rem;
+}
+
+/* --------------------------------------------------
+   RESPONSIVO - CARROSSEL E FEATURETTES
+-------------------------------------------------- */
+@media (min-width: 40em) {
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 62em) {
+  .featurette-heading {
+    margin-top: 7rem;
+  }
+}
+
+/* --------------------------------------------------
+   AJUSTES ESPECÍFICOS (Bootstrap)
+-------------------------------------------------- */
+.nav-link {
+  color: black !important;
+  width: 100% !important;
+}
+
+/* --------------------------------------------------
+   ESTILO DA LINHA DE TEMPO
+-------------------------------------------------- */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+/* Linha vertical central */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 100%;
+  background: #0d6efd;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+/* Circulo indicador */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 1.2rem;
+  width: 24px;
+  height: 24px;
+  background: #0d6efd;
+  border: 4px solid #121212;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Lado esquerdo */
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  padding-right: 3rem;
+}
+
+.timeline-item.left::before {
+  right: -12px;
+}
+
+/* Lado direito */
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+  padding-left: 3rem;
+}
+
+.timeline-item.right::before {
+  left: -12px;
+}
+
+.timeline-item h3 {
+  color: #0d6efd;
+  font-weight: 700;
+}
+
+.timeline-item p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+/* Cards da equipe */
+.team-section {
+  max-width: 900px;
+  margin: 3rem auto 6rem;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.team-section h2 {
+  color: #0d6efd;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.team-member-card {
+  background: #212529;
+  border: none;
+  border-radius: 12px;
+  color: #eee;
+  box-shadow: 0 8px 20px rgba(13, 110, 253, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.team-member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(13, 110, 253, 0.7);
+}
+
+.team-member-card .card-body {
+  padding: 1.5rem;
+}
+
+.team-member-card h5 {
+  color: #0d6efd;
+  margin-bottom: 0.5rem;
+}
+
+.team-member-card p {
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+.team-member-card a {
+  color: #0d6efd;
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  transition: color 0.2s;
+}
+
+.team-member-card a:hover {
+  color: #66aaff;
+}
+
+
+/* --- RESPONSIVIDADE --- */
+
+/* Em telas pequenas: timeline vira coluna única */
+@media (max-width: 767.98px) {
+  .timeline {
+    max-width: 100%;
+    padding: 0 1rem;
+    margin: 2rem auto;
+  }
+
+  /* Remove linha vertical */
+  .timeline::before {
+    left: 8px;
+    transform: none;
+    width: 4px;
+    height: 100%;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 2.5rem !important;
+    padding-right: 1rem !important;
+    text-align: left !important;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0 !important;
+  }
+
+  .timeline-item::before {
+    top: 0.5rem;
+    left: 0;
+    right: auto;
+    border: 4px solid #121212;
+  }
+}
+
+/* Ajustes para header e footer nos dispositivos móveis */
+@media (max-width: 576px) {
+
+  header .col-md-2,
+  header .col-md-3,
+  header .col-md-2.text-end {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center !important;
+    margin-bottom: 0.5rem;
+  }
+
+  header .nav {
+    justify-content: center !important;
+    margin: 1rem 0;
+  }
+}
