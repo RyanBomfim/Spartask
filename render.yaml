@@ -1,8 +1,0 @@
-services:
-  - type: web
-    name: spartask
-    env: php
-    plan: free
-    buildCommand: ""
-    startCommand: ""
-    rootDir: public
