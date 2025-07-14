@@ -3,7 +3,7 @@ $(function () {
     e.preventDefault();
     $.ajax({
       // falta isso, nao se esqueca
-      // vc ecxluiu
+      // vc ecxluiu, yterminou 11h49
       url: '../php/cadastro.php',
       method: 'POST',
       data: $(this).serialize(),
