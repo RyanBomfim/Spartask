@@ -3,6 +3,7 @@ $(function () {
     e.preventDefault();
     $.ajax({
       // falta isso, nao se esqueca
+      // vc ecxluiu
       url: '../php/cadastro.php',
       method: 'POST',
       data: $(this).serialize(),
