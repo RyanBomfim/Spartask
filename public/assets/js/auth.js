@@ -4,6 +4,8 @@ $(function () {
     $.ajax({
       // falta isso aq
       // nao sei se ta salvo o assts la viu, vvc excluiu
+      // tome cuidado
+      
       url: '../php/cadastro.php',
       method: 'POST',
       data: $(this).serialize(),
