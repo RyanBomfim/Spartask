@@ -21,6 +21,7 @@ if (isset($_SESSION['usuario'])) {
        ESTILOS E FONTE EXTERNA
   -------------------------------------------------- -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/session.css">
   <style>
     body {
       background: url('https://informanoticia.com.br/wp-content/uploads/2023/05/limpesa-domestica.jpg') no-repeat center center fixed;
