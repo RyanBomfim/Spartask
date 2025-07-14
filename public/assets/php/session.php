@@ -1,11 +1,11 @@
-<?php
+ljsahfgdtjhuasbhidlbsahjdguk<?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("Location: ../../public/index.php");
+    header("Location: ../index.php");
     exit;
 }
 
-require_once '../../config/config.php';
+require_once '../config/config.php';
 
 $usuarioId = $_SESSION['usuario']['id'];
 $usuarioEmail = $_SESSION['usuario']['email'];
@@ -223,65 +223,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
                     }
                     $stmt->close();
                     ?>
-
-                    <div class="row g-4">
-                        <!-- Gerenciar tarefas -->
-                        <div class="col-lg-6 d-flex flex-column">
-                            <div class="dashboard-card flex-grow-1">
-                                <h5>Gerencie suas tarefas</h5>
-                                <form id="formTarefa" class="mb-3">
-                                    <input type="text" name="titulo" placeholder="Título" class="form-control mb-3"
-                                        required>
-                                    <textarea name="descricao" placeholder="Descrição" class="form-control mb-3"
-                                        rows="3"></textarea>
-                                    <input type="date" name="data" class="form-control mb-4" required>
-                                    <button type="submit" class="btn btn-primary w-100">Adicionar tarefa</button>
-                                </form>
-                                <ul id="listaTarefas" class="list-unstyled flex-grow-1 overflow-auto"
-                                    style="max-height:300px;"></ul>
-                            </div>
-                        </div>
-
-                        <!-- Solicitações Recebidas -->
-                        <div class="col-lg-6 d-flex flex-column">
-                            <div class="dashboard-card flex-grow-1">
-                                <h5>Solicitações Recebidas</h5>
-                                <div
-                                    style="flex-grow: 1; overflow-y: auto; padding-right: 6px; margin-top: 0.5rem; max-height:300px;">
-                                    <?php if (empty($pedidosRecebidos)): ?>
-                                        <p class="text-muted">Nenhuma solicitação recebida até o momento.</p>
-                                    <?php else: ?>
-                                        <ul class="list-unstyled">
-                                            <?php foreach ($pedidosRecebidos as $pedido): ?>
-                                                <li class="list-group-item d-flex flex-column">
-                                                    <div>
-                                                        <strong>De:</strong>
-                                                        <?= htmlspecialchars($pedido['email_contratante']) ?><br>
-                                                        <strong>Descrição:</strong>
-                                                        <?= htmlspecialchars($pedido['descricao']) ?><br>
-                                                        <small class="text-muted">Recebido em
-                                                            <?= date('d/m/Y H:i', strtotime($pedido['data_pedido'])) ?></small>
-                                                    </div>
-                                                    <div class="mt-3">
-                                                        <?php if ($pedido['status'] === 'pendente'): ?>
-                                                            <button class="btn btn-success btn-sm me-2"
-                                                                onclick="atualizarStatus(<?= $pedido['id'] ?>, 'aceito')">Aceitar</button>
-                                                            <button class="btn btn-danger btn-sm"
-                                                                onclick="atualizarStatus(<?= $pedido['id'] ?>, 'recusado')">Recusar</button>
-                                                        <?php else: ?>
-                                                            <span class="badge bg-secondary">Status:
-                                                                <?= ucfirst($pedido['status']) ?></span>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                </li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
+<section class="container py-4">
+    <!-- Gerenciar tarefas -->
+    <div class="row mb-5">
+        <div class="col-12">
+            <div class="dashboard-card p-4 shadow-sm rounded-4 bg-white">
+                <h4 class="mb-4">Gerencie suas tarefas</h4>
+                <form id="formTarefa">
+                    <div class="mb-3">
+                        <input type="text" name="titulo" placeholder="Título" class="form-control" required>
                     </div>
-                </section>
+                    <div class="mb-3">
+                        <textarea name="descricao" placeholder="Descrição" class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <input type="date" name="data" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Adicionar tarefa</button>
+                </form>
+                <ul id="listaTarefas" class="list-unstyled mt-4 overflow-auto" style="max-height: 300px;"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solicitações Recebidas -->
+    <div class="row">
+        <div class="col-12">
+            <div class="dashboard-card p-4 shadow-sm rounded-4 bg-white">
+                <h4 class="mb-4">Solicitações Recebidas</h4>
+                <div style="max-height: 300px; overflow-y: auto; padding-right: 6px;">
+                    <?php if (empty($pedidosRecebidos)): ?>
+                        <p class="text-muted">Nenhuma solicitação recebida até o momento.</p>
+                    <?php else: ?>
+                        <ul class="list-unstyled">
+                            <?php foreach ($pedidosRecebidos as $pedido): ?>
+                                <li class="list-group-item mb-3 border rounded-3 p-3 bg-light">
+                                    <div>
+                                        <strong>De:</strong> <?= htmlspecialchars($pedido['email_contratante']) ?><br>
+                                        <strong>Descrição:</strong> <?= htmlspecialchars($pedido['descricao']) ?><br>
+                                        <small class="text-muted">Recebido em <?= date('d/m/Y H:i', strtotime($pedido['data_pedido'])) ?></small>
+                                    </div>
+                                    <div class="mt-3">
+                                        <?php if ($pedido['status'] === 'pendente'): ?>
+                                            <button class="btn btn-success btn-sm me-2"
+                                                onclick="atualizarStatus(<?= $pedido['id'] ?>, 'aceito')">Aceitar</button>
+                                            <button class="btn btn-danger btn-sm"
+                                                onclick="atualizarStatus(<?= $pedido['id'] ?>, 'recusado')">Recusar</button>
+                                        <?php else: ?>
+                                            <span class="badge bg-secondary">Status: <?= ucfirst($pedido['status']) ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
                 <!-- CHAT (somente doméstica) -->
                 <section id="chat" class="mt-4">

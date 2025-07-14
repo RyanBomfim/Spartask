@@ -2,89 +2,100 @@
 <html lang="pt-BR">
 
 <head>
-   <meta charset="UTF-8">
+  <!-- =========================================
+  🔧 Configurações Básicas da Página
+  ========================================== -->
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+
+  <!-- =========================================
+  🎨 Estilos e Ícone da Página
+  ========================================== -->
+  <link rel="stylesheet" href="assets/css/style.css"> <!-- CSS personalizado -->
+  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon"> <!-- Favicon -->
+
+  <!-- =========================================
+  🧩 Bibliotecas e Frameworks
+  ========================================== -->
+  <!-- Bootstrap CSS e JS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+
+  <!-- Font Awesome (ícones) -->
   <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
 
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
+  <!-- =========================================
+  📝 Título e Estilo Rápido
+  ========================================== -->
   <title>Sobre | SparTask</title>
   <style>
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- /// Cabeçalho /// -->
-
-  <header id="header" class="header d-flex align-items-center fixed-top ">
-    <div
-      class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-end">
-
+  <!-- =========================================
+  🔝 Cabeçalho Fixo
+  ========================================== -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-end">
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <img src="assets/img/logo.png" alt="logo">
-
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">Sobre</a></li>
-          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Cadastre-se</button>
-
-
+          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Cadastre-se
+          </button>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-
     </div>
   </header>
 
-
+  <!-- Espaço para compensar o header fixo -->
   <br><br><br>
 
+  <!-- =========================================
+  📘 Seção: Sobre o Projeto
+  ========================================== -->
   <section class="container my-5" id="sobre-projeto" style="max-width: 900px;">
-  <div class="row align-items-center gy-4">
-    <!-- Texto e descrição -->
-    <div class="col-md-6">
-      <h2 class="text-primary fw-bold mb-3">Sobre o Projeto</h2>
-      <p class=" fs-5">
-        O SparTask é uma plataforma inovadora, idealizada para conectar prestadores de serviços domésticos a clientes de forma rápida, segura e eficiente.
-        Desenvolvido com foco em acessibilidade, usabilidade e tecnologia moderna, nasceu da necessidade de facilitar o dia a dia das pessoas, promovendo confiança e qualidade.
-      </p>
-      <p class=" fs-6">
-        Nosso time multidisciplinar trabalha constantemente para aprimorar a plataforma, garantindo a melhor experiência para todos os usuários.
-      </p>
+    <div class="row align-items-center gy-4">
+      <!-- Texto -->
+      <div class="col-md-6">
+        <h2 class="text-primary fw-bold mb-3">Sobre o Projeto</h2>
+        <p class="fs-5">
+          O SparTask é uma plataforma inovadora, idealizada para conectar prestadores de serviços domésticos a clientes de forma rápida, segura e eficiente.
+          Desenvolvido com foco em acessibilidade, usabilidade e tecnologia moderna, nasceu da necessidade de facilitar o dia a dia das pessoas, promovendo confiança e qualidade.
+        </p>
+        <p class="fs-6">
+          Nosso time multidisciplinar trabalha constantemente para aprimorar a plataforma, garantindo a melhor experiência para todos os usuários.
+        </p>
+      </div>
 
-
+      <!-- Imagem -->
+      <div class="col-md-6 text-center">
+        <img src="assets/img/logo.png" alt="Imagem representando o projeto SparTask" class="img-fluid rounded shadow"
+          style="max-height: 320px; object-fit: contain;">
+      </div>
     </div>
+  </section>
 
-    <!-- Imagem -->
-    <div class="col-md-6 text-center">
-      <img src="assets/img/logo.png" alt="Imagem representando o projeto SparTask" class="img-fluid rounded shadow" style="max-height: 320px; object-fit: contain;">
-    </div>
-  </div>
-</section>
-
-
-  <!-- /// Linha do tempo /// -->
+  <!-- =========================================
+  📅 Seção: Linha do Tempo do Projeto
+  ========================================== -->
   <section class="timeline" aria-label="Linha do tempo da SparTask">
     <div class="timeline-item left" tabindex="0" aria-describedby="desc1">
       <h3><i class="fa fa-lightbulb me-2"></i> Ideia Inicial</h3>
@@ -118,10 +129,14 @@
     </div>
   </section>
 
-  <!-- /// Equipe /// -->
+  <!-- =========================================
+  👥 Seção: Equipe do Projeto
+  ========================================== -->
   <section class="team-section">
     <h2>Nossa Equipe</h2>
     <div class="row g-4 justify-content-center">
+
+      <!-- Membro 1 -->
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card team-member-card shadow-sm">
           <div class="card-body">
@@ -139,6 +154,7 @@
         </div>
       </div>
 
+      <!-- Outros membros (exemplos fictícios) -->
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card team-member-card shadow-sm">
           <div class="card-body">
@@ -177,31 +193,35 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
- <!-- /// Footer /// -->
 
+  <!-- =========================================
+  📢 Rodapé (Footer)
+  ========================================== -->
   <section class="finaly">
     <div class="container">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-body-secondary">SparTask &copy; 2025 </p>
+        <p class="col-md-4 mb-0 text-body-secondary">SparTask &copy; 2025</p>
 
-        <a href="/"
-          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto text-decoration-none">
           <img class="bi me-2" width="40" height="40" src="assets/img/logo.png">
         </a>
 
         <ul class="nav col-md-4 justify-content-end">
           <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">
-              <i class="fa fa-solid fa-instagram" style="font-size: 30px;"></i></a></li>
+              <i class="fa fa-instagram" style="font-size: 30px;"></i></a></li>
           <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">
-              <i class="fa fa-solid fa-whatsapp" style="font-size: 30px;"></i></a></li>
-
+              <i class="fa fa-whatsapp" style="font-size: 30px;"></i></a></li>
         </ul>
       </footer>
     </div>
   </section>
 
+  <!-- =========================================
+  📜 Script JS personalizado
+  ========================================== -->
   <script src="assets/js/script.js" defer></script>
 
 </body>

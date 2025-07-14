@@ -2,14 +2,14 @@ $(function () {
   $('#formCadastro').submit(function (e) {
     e.preventDefault();
     $.ajax({
-      url: '../assets/php/cadastro.php',
+      url: '../php/cadastro.php',
       method: 'POST',
       data: $(this).serialize(),
       dataType: 'json',
       success: function (res) {
         if (res.status === 'sucesso') {
           $('#msgCadastro').html('<div class="alert alert-success">Bem-vindo, ' + res.email + '!</div>');
-          setTimeout(() => window.location.href = '../assets/php/session.php', 1000);
+          setTimeout(() => window.location.href = 'assets/php/session.php', 1000);
         } else {
           $('#msgCadastro').html('<div class="alert alert-danger">' + res.mensagem + '</div>');
         }
@@ -23,7 +23,7 @@ $(function () {
   $('#formLogin').submit(function (e) {
     e.preventDefault();
     $.ajax({
-      url: '../assets/php/login.php',
+      url: '../php/login.php',
       method: 'POST',
       data: $(this).serialize(),
       dataType: 'json',

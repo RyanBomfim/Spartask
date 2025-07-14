@@ -5,7 +5,7 @@ if (!isset($_SESSION['usuario']) || ($_SESSION['perfil'] ?? '') !== 'domestica')
     echo json_encode(['status' => 'erro', 'mensagem' => 'Acesso negado']);
     exit;
 }
-require_once '../../config/config.php';
+require_once '../config/config.php';
 header('Content-Type: application/json');
 
 $id_domestica = $_SESSION['usuario']['id'];

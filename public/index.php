@@ -4,7 +4,7 @@
 // --------------------------------------------------
 session_start();
 if (isset($_SESSION['usuario'])) {
-    header('Location: ../assets/php/session.php');
+    header('Location: assets/php/session.php');
     exit;
 }
 ?>
@@ -40,7 +40,7 @@ if (isset($_SESSION['usuario'])) {
   -------------------------------------------------- -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="../assets/js/auth.js" defer></script>
+  <script src="assets/js/auth.js" defer></script>
 </head>
 
 <body>
