@@ -2,7 +2,7 @@ $(function () {
   $('#formCadastro').submit(function (e) {
     e.preventDefault();
     $.ajax({
-      // falta isso 
+      // falta isso, nao se esqueca
       url: '../php/cadastro.php',
       method: 'POST',
       data: $(this).serialize(),
