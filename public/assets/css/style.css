@@ -93,7 +93,6 @@ section {
     right: 0;
     z-index: 999;
     background-color: rgba(255, 255, 255, 0.95); /* ou transparente se preferir */
-    backdrop-filter: blur(10px); /* efeito moderno */
     height: 70px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
