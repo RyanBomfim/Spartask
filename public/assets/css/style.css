@@ -290,6 +290,14 @@ header {
 /* --------------------------------------------------
    CARROSSEL / FEATURETTES (Bootstrap custom)
 -------------------------------------------------- */
+
+.bg-personality {
+  background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://i.pinimg.com/736x/9d/1c/ff/9d1cff8852b82b520f3aad8d65e50c42.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+
+}
+
 .carousel {
   margin-bottom: 4rem;
 }
