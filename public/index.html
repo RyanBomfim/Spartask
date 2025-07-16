@@ -2,182 +2,211 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+  <!-- =========================================
+  🔧 Configurações Básicas da Página
+  ========================================== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- =========================================
+  🎨 Estilos e Ícone da Página
+  ========================================== -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
+
+  <!-- =========================================
+  🧩 Bibliotecas e Frameworks
+  ========================================== -->
+  <!-- Bootstrap CSS e JS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+    defer></script>
 
   <!-- Font Awesome -->
-  <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous" defer></script>
 
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- =========================================
+  📝 Título e Estilo Rápido
+  ========================================== -->
   <title>Home | SparTask</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
 </head>
 
 <body>
+  <!-- =========================================
+  🔝 Cabeçalho Fixo
+  ========================================== -->
+  <div class="bg-personality">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-end">
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+          <img src="assets/img/logo.png" alt="logo" />
+        </a>
 
+        <nav id="navmenu" class="navmenu">
+          <ul style="margin-right: 20px;">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">Sobre</a></li>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Cadastre-se
+            </button>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
 
-  <!-- --------------------------------------------------
-   MODAL DE CADASTRO
--------------------------------------------------- -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content rounded-4 shadow">
-        <div class="modal-header p-5 pb-4 border-bottom-0">
-          <h1 class="fw-bold mb-0 fs-2">Cadastre-se grátis</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <!-- Espaço para compensar o header fixo -->
+    <div style="height: 70px;"></div>
+
+    <!-- =========================================
+  📢 Modal de Cadastro
+  ========================================== -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 shadow">
+          <div class="modal-header p-5 pb-4 border-bottom-0">
+            <h1 class="fw-bold mb-0 fs-2">Cadastre-se grátis</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body p-5 pt-0">
+            <form>
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" />
+                <label for="floatingInput">Email</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" />
+                <label for="floatingPassword">Senha</label>
+              </div>
+              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">
+                Cadastre-se
+              </button>
+              <small class="text-body-secondary">Ao se cadastrar, você aceita todos os termos.</small>
+              <hr class="my-4" />
+              <h2 class="fs-5 fw-bold mb-3">Ou tente de outras formas</h2>
+              <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
+                <i class="fa fa-twitter me-2" style="font-size: 15px;"></i>
+                Cadastre-se com Twitter
+              </button>
+              <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="button">
+                <i class="fa fa-facebook text-primary me-2" style="font-size: 15px;"></i>
+                Cadastre-se com Facebook
+              </button>
+              <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
+                <i class="fa fa-github me-2" style="font-size: 15px;"></i>
+                Cadastre-se com GitHub
+              </button>
+            </form>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div class="modal-body p-5 pt-0">
-          <form class="">
-            <div class="form-floating mb-3">
-              <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com">
-              <label for="floatingInput">Email </label>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password">
-              <label for="floatingPassword">Senha</label>
-            </div>
-            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">Cadastre-se</button>
-            <small class="text-body-secondary">Caso se cadastre-se ira estar aceitando todos os termos.</small>
-            <hr class="my-4">
-            <h2 class="fs-5 fw-bold mb-3">Ou tente de outras formas</h2>
-            <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
-              <i class="fa fa-solid fa-twitter" style="font-size: 15px;"></i>
-              Cadastre-se com Twitter
-            </button>
-            <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
-              <i class="fa fa-solid fa-facebook text-primary" style="font-size: 15px;"></i>
-              Cadastre-se com Facebook
-            </button>
-            <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
-              <i class="fa fa-solid fa-github" style="font-size: 15px;"></i>
-              Cadastre-se com GitHub
-            </button>
-          </form>
+    <!-- =========================================
+  📘 Seção Principal / Banner
+  ========================================== -->
+    <section class="primary text-white position-relative overflow-hidden">
+      <div class="container min-vh-100 d-flex flex-column justify-content-center align-items-center text-center py-5">
+        <h1 class="display-4 fw-bold mb-4 text-white">
+          Serviços domésticos para <br />
+          <span class="text-primary">todos!</span>
+        </h1>
+
+        <p class="lead mb-4 col-lg-8 text-white">
+          O melhor website para serviços domésticos, sendo rápido, prático e fácil de
+          utilizar! Ache os melhores profissionais da sua região ou trabalhe com a
+          SparTask.
+        </p>
+
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-primary btn-lg px-4" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+            Ache já perto de você
+          </button>
+          <button type="button" class="btn btn-outline-light btn-lg px-4">
+            Trabalhe conosco
+          </button>
+        </div>
+      </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="container px-4 py-5 text-dark">
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <!-- CARD 1 -->
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white rounded-4 shadow-lg position-relative bg-dark"
+          style="
+              background-image: url('assets/img/card1.png');
+              background-size: cover;
+              background-position: center;
+            ">
+          <div class="overlay-dark"></div>
+          <div class="d-flex flex-column h-100 p-5 pb-3 z-1 position-relative">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+              Ache já perto de você
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white rounded-4 shadow-lg position-relative bg-dark"
+          style="
+              background-image: url('assets/img/card3.png');
+              background-size: cover;
+              background-position: center;
+            ">
+          <div class="overlay-dark"></div>
+          <div class="d-flex flex-column h-100 p-5 pb-3 z-1 position-relative">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+              Mais seguro, mais prático e mais rápido
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white rounded-4 shadow-lg position-relative bg-dark"
+          style="
+              background-image: url('assets/img/card2.png');
+              background-size: cover;
+              background-position: center;
+            ">
+          <div class="overlay-dark"></div>
+          <div class="d-flex flex-column h-100 p-5 pb-3 z-1 position-relative">
+            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
+              O serviço que você precisa <br /> na sua <br /> mão
+            </h3>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  <div class="bg-personality">
-
-  <!-- --------------------------------------------------
-   CABEÇALHO / HEADER
--------------------------------------------------- -->
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="header-container container-fluid container-xl position-relative d-flex
-     align-items-center justify-content-end">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo.png" alt="logo">
-
-      </a>
-      <nav id="navmenu" class="navmenu">
-        <ul style="margin-right: 20px;">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">Sobre</a></li>
-          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Cadastre-se</button>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-    </div>
-  </header>
-
-  <!-- --------------------------------------------------
-   SECTION PRINCIPAL / BANNER
--------------------------------------------------- -->
-  <section class="primary ">
-    <br><br><br>
-
-    <main>
-      <div class="px-4 py-5 my-5 text-center text-white">
-        <h1 class="display-5 fw-bold ">Serviços domésticos para <b class="text-primary"> <br> todos! </b>
-        </h1>
-        <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4 text-white" style="margin: 15px;">
-            O melhor website para serviços domésticos, sendo rápido, prático e fácil de utilizar! Ache
-            os
-            melhores profissionais da sua região ou trabalhe com a SparTask.
-          </p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3" data-bs-toggle="modal"
-              data-bs-target="#exampleModal">Ache já perto de você</button>
-            <button type="button" class="btn btn-secondary btn-lg px-4">Trabalhe conosco</button>
-          </div>
-        </div>
-      </div>
-
-      <br><br><br>
-</div>
-      <div class="container px-4 py-5" id="custom-cards">
-
-
-        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
-              style="background-image: url('assets/img/card1.png'); background-size: 400px; background-repeat: no-repeat;">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Ache já perto de você</h3>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
-              style="background-image: url('assets/img/card3.png');  background-size: 400px; background-repeat: no-repeat;">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Mais seguro, mais prático e mais rápido</h3>
-                <ul class="d-flex list-unstyled mt-auto">
-                  <li class="me-auto">
-                    <img src="assets/img/logo.png" alt="Bootstrap" width="32" height="32">
-                  </li>
-                  <li class="d-flex align-items-center me-3">
-                    <svg class="bi me-2" width="1em" height="1em">
-                      <use xlink:href="#geo-fill" />
-                    </svg>
-                    <small>SparTask</small>
-                  </li>
-
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
-              style="background-image: url('assets/img/card2.png');  background-size: 400px; background-repeat: no-repeat;">
-              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
-                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold text-white">O serviço que você precisa <br> na sua <br>
-                  mão</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-    </main>
-
   </section>
 
-  <!-- --------------------------------------------------
-   SECTION DE JUNTAR-SE
--------------------------------------------------- -->
+  <!-- =========================================
+  📣 Seção Juntar-se
+  ========================================== -->
   <section class="bg-primary">
     <div class="container-fluid bg-primary">
       <div class="row text-white p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
         <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-          <h1 class="display-4 fw-bold lh-1  text-white">Quer se juntar?</h1>
+          <h1 class="display-4 fw-bold lh-1 text-white">Quer se juntar?</h1>
           <p class="lead text-white">
             Aqui você encontra facilidade de divulgar seu serviço e um lugar seguro para administrar seus
             trabalhos feitos e renda feita com eles, com um design fácil e acessível, além de ter o histórico dos seus
@@ -185,30 +214,34 @@
             e o valor de cada um, não perca tempo e comece já a ter seu trabalho facilitado pela SparTask.
           </p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-            <button type="button" class="btn btn-outline-light btn-lg px-4 me-md-2 fw-bold">Começar agora!</button>
+            <button type="button" class="btn btn-outline-light btn-lg px-4 me-md-2 fw-bold">
+              Começar agora!
+            </button>
           </div>
         </div>
         <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-          <img class="rounded-lg-3" src="assets/img/banner.png" alt="" width="720">
+          <img class="rounded-lg-3" src="assets/img/banner.png" alt="Banner SparTask" width="720" />
         </div>
       </div>
     </div>
   </section>
-  <!-- /// Espacer /// -->
 
+  <!-- Espaço extra -->
   <div class="br">
-    <br><br><br><br><br><br><br>
+    <br /><br /><br /><br />
   </div>
 
-
+  <!-- =========================================
+  📍 Seção Profissionais e Clientes
+  ========================================== -->
   <div class="container py-4">
     <div class="row align-items-md-stretch">
       <div class="col-md-6">
         <div class="h-100 p-5 text-bg-dark rounded-3">
           <h2>Está procurando profissionais?</h2>
           <p class="text-white">
-            Aqui em nosso site você ira achar os mais bem avaliados da sua região e
-            poder se conectar com eles direto no site. Clique abaixo
+            Aqui em nosso site você irá achar os mais bem avaliados da sua região e
+            poderá se conectar com eles direto no site. Clique abaixo.
           </p>
           <button class="btn btn-outline-light" type="button">Veja já!</button>
         </div>
@@ -217,7 +250,7 @@
         <div class="h-100 p-5 bg-body-tertiary border rounded-3">
           <h2>Procura novos clientes?</h2>
           <p>
-            Com a SparTask você se conectara com diversos clientes e aumentará sua visibilidade,
+            Com a SparTask você se conectará com diversos clientes e aumentará sua visibilidade,
             além de
             um local organizado e com uma gestão fácil dos seus serviços prestados.
           </p>
@@ -225,112 +258,108 @@
         </div>
       </div>
     </div>
-
-
-    <!-- /// Espacer /// -->
-
-    <div class="br">
-      <br><br><br><br><br>
-    </div>
-
-    <!-- --------------------------------------------------
-   QUALIDADES
--------------------------------------------------- -->
-
-    <section>
-      <div class="container px-4 py-5" id="featured-3">
-        <h2 class="pb-2 border-bottom">Aqui você encontra:</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-          <div class="feature col">
-            <div
-              class="feature-icon d-inline-flex align-items-center rounded-3 justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-              <i class="fa fa-solid fa-user text-white " style="margin: 10px;" width="1em" height="1em">
-
-              </i>
-            </div>
-            <h3 class="fs-2 text-body-emphasis">Facilidade</h3>
-            <p>
-              Com apenas alguns cliques já é possível achar um profissional qualificado e com a possibilidade
-              para negociar com o mesmo.
-            </p>
-
-          </div>
-          <div class="feature col">
-            <div
-              class="feature-icon d-inline-flex rounded-3 align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-              <i class="fa fa-solid fa-comment text-white" style="margin: 10px;" width="1em" height="1em">
-
-              </i>
-            </div>
-            <h3 class="fs-2 text-body-emphasis">Confiança</h3>
-            <p>
-              Aqui nós possibilitamos o método de avaliação do profissional, ficando vísivel para todos os
-              usuários, com comentários sobre o mesmo.
-            </p>
-
-          </div>
-          <div class="feature col">
-            <div
-              class="feature-icon d-inline-flex align-items-center justify-content-center rounded-3 text-bg-primary bg-gradient fs-2 mb-3">
-              <i class="fa fa-solid fa-dashboard text-white" style="margin: 10px;" width="1em" height="1em">
-
-              </i>
-            </div>
-            <h3 class="fs-2 text-body-emphasis">Dashboard</h3>
-            <p>
-              Quer gerir seus serviços? aqui você pode com nosso dashboard onde terá todos os serviços feitos por você
-              e seus respectivos valores.
-            </p>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
   </div>
 
-  <!-- /// Espacer /// -->
-
+  <!-- Espaço extra -->
   <div class="br">
-    <br>
+    <br /><br /><br />
   </div>
 
-
-  <section class="bg-primary" style="width: 100%;">
-    <div class="px-4 pt-5 my-5 text-center border-bottom ">
-      <h1 class="display-4 fw-bold text-white ">Ache agora seus <b class="text-warning">profissionais</b></h1>
-      <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4 text-white">Ache o profissional mais próximo de você que pode atingir suas demandas,
-          converse e agende
-          já sua visita com algum dos nossos profissionais dísponiveis no momento que melhor atende suas necessidades.
-        </p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-          <button type="button" class="btn btn-warning text-white btn-lg px-4 me-sm-3">Ache agora!</button>
-
+  <!-- =========================================
+  ⭐ Seção Qualidades
+  ========================================== -->
+  <section>
+    <div class="container px-4 py-5" id="featured-3">
+      <h2 class="pb-2 border-bottom">Aqui você encontra:</h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center rounded-3 justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <i class="fa fa-user text-white" style="margin: 10px;" width="1em" height="1em"></i>
+          </div>
+          <h3 class="fs-2 text-body-emphasis">Facilidade</h3>
+          <p>
+            Com apenas alguns cliques já é possível achar um profissional qualificado e com a possibilidade
+            para negociar com o mesmo.
+          </p>
         </div>
-      </div>
-      <div class="overflow-hidden" style="max-height: 30vh;">
-        <div class="container px-5">
-          <img src="assets/img/banner.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
-            width="700" height="500" loading="lazy">
+
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex rounded-3 align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+            <i class="fa fa-comment text-white" style="margin: 10px;" width="1em" height="1em"></i>
+          </div>
+          <h3 class="fs-2 text-body-emphasis">Confiança</h3>
+          <p>
+            Aqui nós possibilitamos o método de avaliação do profissional, ficando visível para todos os
+            usuários, com comentários sobre o mesmo.
+          </p>
+        </div>
+
+        <div class="feature col">
+          <div
+            class="feature-icon d-inline-flex align-items-center justify-content-center rounded-3 text-bg-primary bg-gradient fs-2 mb-3">
+            <i class="fa fa-dashboard text-white" style="margin: 10px;" width="1em" height="1em"></i>
+          </div>
+          <h3 class="fs-2 text-body-emphasis">Dashboard</h3>
+          <p>
+            Quer gerir seus serviços? aqui você pode com nosso dashboard onde terá todos os serviços feitos por você
+            e seus respectivos valores.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- /// Espacer /// -->
-
+  <!-- Espaço extra -->
   <div class="br">
-    <br>
+    <br />
   </div>
 
+  <!-- =========================================
+  📢 Seção Buscar Profissionais
+  ========================================== -->
+  <section class="bg-primary" style="width: 100%">
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+      <h1 class="display-4 fw-bold text-white">
+        Ache agora seus <b class="text-warning">profissionais</b>
+      </h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4 text-white">
+          Ache o profissional mais próximo de você que pode atingir suas demandas,
+          converse e agende já sua visita com algum dos nossos profissionais disponíveis no momento que melhor atende
+          suas necessidades.
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <button type="button" class="btn btn-warning text-white btn-lg px-4 me-sm-3">
+            Ache agora!
+          </button>
+        </div>
+      </div>
+      <div class="overflow-hidden" style="max-height: 30vh">
+        <div class="container px-5">
+          <img src="assets/img/banner.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Banner SparTask"
+            width="700" height="500" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Espaço extra -->
+  <div class="br">
+    <br />
+  </div>
+
+  <!-- =========================================
+  📋 Seção Verificação de Capacitação
+  ========================================== -->
   <section>
     <div class="container col-xl-10 col-xxl-8 px-4 py-5">
       <div class="row align-items-center g-lg-5 py-5">
         <div class="col-lg-7 text-center text-lg-start">
-          <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Verifique se você é capacitado!</h1>
+          <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">
+            Verifique se você é capacitado!
+          </h1>
           <p class="col-lg-10 fs-4">
             Informe ao lado as informações que pedem para entrar em contato conosco e verifique se você é capaz de
             fazer parte do nosso time da SparTask agora!
@@ -339,49 +368,61 @@
         <div class="col-md-10 mx-auto col-lg-5">
           <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
               <label for="floatingInput">Nome</label>
             </div>
             <div class="form-floating mb-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
               <label for="floatingPassword">Telefone</label>
             </div>
 
-            <button class="w-100 btn btn-lg btn-success" type="submit"> <i
-                class="fa fa-solid fa-whatsapp text-white"></i> Enviar</button>
-            <hr class="my-4">
-            <small class="text-body-secondary">Clique em enviar sabendo que entraremos em contato com você.</small>
+            <button class="w-100 btn btn-lg btn-success" type="submit">
+              <i class="fa fa-whatsapp text-white me-2"></i> Enviar
+            </button>
+            <hr class="my-4" />
+            <small class="text-body-secondary">Nós nunca compartilharemos seu e-mail com mais ninguém.</small>
           </form>
         </div>
       </div>
     </div>
   </section>
-  <!-- /// Footer /// -->
 
-  <section class="finaly">
-    <div class="container">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-body-secondary">SparTask &copy; 2025 </p>
-
-        <a href="/"
-          class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-          <img class="bi me-2" width="40" height="40" src="assets/img/logo.png">
-        </a>
-
-        <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">
-              <i class="fa fa-solid fa-instagram" style="font-size: 30px;"></i></a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">
-              <i class="fa fa-solid fa-whatsapp" style="font-size: 30px;"></i></a></li>
-
-        </ul>
-      </footer>
-    </div>
-  </section>
-
+  <!-- Espaço extra -->
+  <div class="br">
+    <br />
   </div>
-  <script src="assets/js/script.js" defer></script>
 
+  <!-- =========================================
+  📢 Rodapé (Footer)
+  ========================================== -->
+  <footer class="container py-5">
+    <div class="d-flex flex-wrap justify-content-between align-items-center border-top pt-4">
+      <p class="col-md-4 mb-0 text-body-secondary">SparTask &copy; 2025</p>
+
+      <a href="/"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+        <img class="bi me-2" width="40" height="40" src="assets/img/logo.png" />
+      </a>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3">
+          <a class="text-body-secondary" href="#" aria-label="Instagram">
+            <i class="fa fa-instagram" style="font-size: 30px"></i>
+          </a>
+        </li>
+        <li class="ms-3">
+          <a class="text-body-secondary" href="#" aria-label="WhatsApp">
+            <i class="fa fa-whatsapp" style="font-size: 30px"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- =========================================
+  📜 Script JS personalizado
+  ========================================== -->
+  <script src="assets/js/script.js" defer></script>
 </body>
 
 </html>

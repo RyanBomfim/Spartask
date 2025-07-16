@@ -20,6 +20,10 @@ a {
 header {
   font-size: 15px !important;
 }
+section {
+  scroll-margin-top: 80px; /* se tiver header fixo */
+}
+
 
 /* --------------------------------------------------
    HEADER GLOBAL
@@ -79,6 +83,24 @@ header {
   padding: 0;
   background-color: var(--background-color);
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1199px) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.95); /* ou transparente se preferir */
+    backdrop-filter: blur(10px); /* efeito moderno */
+    height: 70px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  body {
+    padding-top: 70px; /* evita que o conteúdo fique escondido atrás do header */
+  }
 }
 
 /* --------------------------------------------------
@@ -292,11 +314,28 @@ header {
 -------------------------------------------------- */
 
 .bg-personality {
-  background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://i.pinimg.com/736x/9d/1c/ff/9d1cff8852b82b520f3aad8d65e50c42.jpg");
+  background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://i.pinimg.com/1200x/bf/6e/7c/bf6e7c6bede851fbfb3473403815b9bd.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-
+ background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
+
+.overlay-dark {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* escurecimento */
+  z-index: 0;
+}
+
+.card-cover .position-relative {
+  z-index: 1;
+  color: #fff; /* força branco */
+}
+
 
 .carousel {
   margin-bottom: 4rem;
