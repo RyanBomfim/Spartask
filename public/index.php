@@ -33,6 +33,12 @@ if (isset($_SESSION['usuario'])) {
       justify-content: center;
       font-family: 'Segoe UI', sans-serif;
     }
+    @media screen and (max-width: 991px) {
+      body {
+        background-image: url('https://i.pinimg.com/736x/9d/1c/ff/9d1cff8852b82b520f3aad8d65e50c42.jpg');
+      }
+
+    }
   </style>
 
   <!-- --------------------------------------------------
