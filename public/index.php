@@ -26,10 +26,8 @@ if (isset($_SESSION['usuario'])) {
   <link rel="stylesheet" href="assets/css/session.css">
   <style>
     body {
-      background-image: url('assets/img/carrosel1.jpg');
       background-size: cover;
       margin: 0;
-      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -54,15 +52,17 @@ if (isset($_SESSION['usuario'])) {
 
 <div class="col-md-8">
    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm bg-white position-relative"
-   style="max-height: 500px !important;">
+   style="max-height: 900px !important;">
       <div class="col p-4 d-flex flex-column position-static"> <strong
-          class="d-inline-block mb-2 text-primary-emphasis">Spartask</strong>
+          class="d-inline-block mb-2 text-primary-emphasis text-center">
+          <img src="assets/img/logo.png" alt="Logo" style="width: 100px; height: auto;padding:15px;">
+        </strong>
 
 
   <div class="auth-card ">
     <!-- CADASTRO -->
     <div id="cadastroView">
-      <h2 class=" mb-4">Cadastre-se grátis</h2>
+      <h2 class="text-center mb-4">Cadastre-se grátis</h2>
       <form id="formCadastro">
         <div class="form-floating mb-3">
           <input type="email" name="email" class="form-control" required />
@@ -100,7 +100,7 @@ if (isset($_SESSION['usuario'])) {
   </div>
 
    <div class="col-auto d-none d-lg-block">
-     <img src="assets/img/banner.png"
+     <img src="assets/img/login.jpg"
      aria-label="Placeholder: Thumbnail" class="bd-placeholder-img"
      style="height: 100% !important;" preserveAspectRatio="xMidYMid slice" role="img" width="400"
            >
