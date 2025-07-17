@@ -36,6 +36,10 @@ section {
   z-index: 997;
 }
 
+ul, li {
+  padding: 15px;
+}
+
 .header .header-container {
   background-color: var(--background-color);
   position: relative;
