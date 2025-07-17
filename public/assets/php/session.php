@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("Location: ../home.php");
+    header("Location: ../index.php");
     exit;
 }
 
-require_once '../../config/config.php';
+require_once 'config/config.php';
 
 $usuarioId = $_SESSION['usuario']['id'];
 $usuarioEmail = $_SESSION['usuario']['email'];

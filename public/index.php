@@ -556,77 +556,127 @@ Seção: Newsletter + Depoimentos + FAQ
   <!-- =========================================
   📢 Modal de Cadastro
   ========================================== -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content rounded-4 shadow">
-        <div class="modal-header p-5 pb-4 border-bottom-0">
-          <h1 class="fw-bold mb-0 fs-2">Cadastre-se grátis</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 
-        <div class="modal-body p-5 pt-0">
+<!-- Modal Cadastro/Login -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Cadastre-se grátis</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
 
-          <div class="auth-card ">
-            <!-- CADASTRO -->
-            <div id="cadastroView">
-              <form id="formCadastro">
-                <div class="form-floating mb-3">
-                  <input type="email" name="email" class="form-control" required />
-                  <label>Email</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="password" name="senha" class="form-control" required />
-                  <label>Senha</label>
-                </div>
-                <button class="w-100 mb-3 btn btn-lg btn-primary btn-emoji" type="submit">Cadastrar</button>
-                <div id="msgCadastro" class="text-center mt-2"></div>
-                <p class="text-center mt-3">Já tem uma conta? <span class="toggle-link" id="showLogin">Faça login
-                    🔑</span></p>
-              </form>
-            </div>
-
-            <!-- LOGIN -->
-            <div id="loginView" style="display: none;">
-              <h2 class="text-center mb-4">Faça seu login</h2>
-              <form id="formLogin">
-                <div class="form-floating mb-3">
-                  <input type="email" name="email" class="form-control" required />
-                  <label>Email</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="password" name="senha" class="form-control" required />
-                  <label>Senha</label>
-                </div>
-                <button class="w-100 mb-3 btn btn-lg btn-secondary btn-emoji" type="submit">Entrar</button>
-                <div id="msgLogin" class="text-center mt-2"></div>
-                <p class="text-center mt-3">Ainda não tem conta? <span class="toggle-link" id="showCadastro">Cadastre-se
-                    🧼</span></p>
-              </form>
-            </div>
+      <div class="modal-body p-5 pt-0">
+        <!-- Formulário padrão -->
+        <div class="auth-card">
+          <div id="cadastroView">
+            <form id="formCadastro">
+              <div class="form-floating mb-3">
+                <input type="email" name="email" class="form-control" required />
+                <label>Email</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" name="senha" class="form-control" required />
+                <label>Senha</label>
+              </div>
+              <button class="w-100 mb-3 btn btn-lg btn-primary btn-emoji" type="submit">Cadastrar</button>
+              <div id="msgCadastro" class="text-center mt-2"></div>
+              <p class="text-center mt-3">Já tem uma conta? <span class="toggle-link" id="showLogin">Faça login 🔑</span></p>
+            </form>
           </div>
 
-          <small class="text-body-secondary">Ao se cadastrar, você aceita todos os termos.</small>
-          <hr class="my-4" />
-          <h2 class="fs-5 fw-bold mb-3">Ou tente de outras formas</h2>
-          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
-            <i class="fa fa-Google me-2" style="font-size: 15px;"></i>
-            Cadastre-se com Google
-          </button>
-          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="button">
-            <i class="fa fa-facebook text-primary me-2" style="font-size: 15px;"></i>
-            Cadastre-se com Facebook
-          </button>
-          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
-            <i class="fa fa-github me-2" style="font-size: 15px;"></i>
-            Cadastre-se com GitHub
-          </button>
+          <div id="loginView" style="display: none;">
+            <h2 class="text-center mb-4">Faça seu login</h2>
+            <form id="formLogin">
+              <div class="form-floating mb-3">
+                <input type="email" name="email" class="form-control" required />
+                <label>Email</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" name="senha" class="form-control" required />
+                <label>Senha</label>
+              </div>
+              <button class="w-100 mb-3 btn btn-lg btn-secondary btn-emoji" type="submit">Entrar</button>
+              <div id="msgLogin" class="text-center mt-2"></div>
+              <p class="text-center mt-3">Ainda não tem conta? <span class="toggle-link" id="showCadastro">Cadastre-se 🧼</span></p>
+            </form>
+          </div>
         </div>
 
+        <small class="text-body-secondary">Ao se cadastrar, você aceita todos os termos.</small>
+        <hr class="my-4" />
+
+        <h2 class="fs-5 fw-bold mb-3">Ou entre com sua conta Google</h2>
+        <button onclick="loginGoogle()" class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
+          <i class="fa fa-google me-2" style="font-size: 15px;"></i>
+          Entrar com Google
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal de Cadastro/Login com Firebase Google Auth -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">Cadastre-se grátis</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <!-- ÁREA DE CADASTRO -->
+        <div id="cadastroView">
+          <form id="formCadastro">
+            <div class="form-floating mb-3">
+              <input type="email" name="email" class="form-control" required />
+              <label>Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" name="senha" class="form-control" required />
+              <label>Senha</label>
+            </div>
+            <button class="w-100 mb-3 btn btn-lg btn-primary btn-emoji" type="submit">Cadastrar</button>
+            <div id="msgCadastro" class="text-center mt-2"></div>
+            <p class="text-center mt-3">Já tem uma conta? <span class="toggle-link" id="showLogin">Faça login 🔑</span></p>
+          </form>
+        </div>
+
+        <!-- ÁREA DE LOGIN -->
+        <div id="loginView" style="display: none;">
+          <h2 class="text-center mb-4">Faça seu login</h2>
+          <form id="formLogin">
+            <div class="form-floating mb-3">
+              <input type="email" name="email" class="form-control" required />
+              <label>Email</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" name="senha" class="form-control" required />
+              <label>Senha</label>
+            </div>
+            <button class="w-100 mb-3 btn btn-lg btn-secondary btn-emoji" type="submit">Entrar</button>
+            <div id="msgLogin" class="text-center mt-2"></div>
+            <p class="text-center mt-3">Ainda não tem conta? <span class="toggle-link" id="showCadastro">Cadastre-se 🧼</span></p>
+          </form>
+        </div>
+
+        <small class="text-body-secondary">Ao se cadastrar, você aceita todos os termos.</small>
+        <hr class="my-4" />
+        <h2 class="fs-5 fw-bold mb-3">Ou entre com</h2>
+
+        <!-- BOTÃO GOOGLE FUNCIONAL -->
+       <button onclick="loginGoogle()" class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3">
+  <i class="fa fa-google me-2" style="font-size: 15px;"></i>
+  Entrar com Google
+</button>
 
       </div>
     </div>
   </div>
-  </div>
+</div>
 
 
   <!-- --------------------------------------------------
@@ -708,6 +758,72 @@ Seção: Newsletter + Depoimentos + FAQ
   📜 Script JS personalizado
   ========================================== -->
   <script src="assets/js/script.js" defer></script>
+
+  <!-- Firebase JS SDK (compatível com HTML puro) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script>
+  // Config Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyAt5LHSo2KOhxLgImJW1VJkYIEDwkt16Qc",
+    authDomain: "spartask-14572.firebaseapp.com",
+    projectId: "spartask-14572",
+    storageBucket: "spartask-14572.firebasestorage.app",
+    messagingSenderId: "689319831698",
+    appId: "1:689319831698:web:7b771ba5976c81403e1e4b",
+    measurementId: "G-QX079ZF105"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  function loginGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    auth.signInWithPopup(provider)
+      .then(result => {
+        const user = result.user;
+        const email = user.email;
+        const nome = user.displayName;
+
+        // ⚠️ Gera uma senha padrão aleatória ou fixa (já que o Firebase não fornece)
+        const senhaFake = "GoogleLogin123"; // Pode ser criptografada no PHP também
+
+        // Preencher o formulário de login automático
+        document.getElementById('loginView').style.display = 'block';
+        document.getElementById('cadastroView').style.display = 'none';
+
+        document.querySelector('#formLogin input[name="email"]').value = email;
+        document.querySelector('#formLogin input[name="senha"]').value = senhaFake;
+
+        // Submeter o formulário de login
+        setTimeout(() => {
+          document.getElementById('formLogin').submit();
+        }, 500);
+
+      })
+      .catch(error => {
+        console.error("Erro no login Google:", error);
+        alert("Erro ao fazer login com Google: " + error.message);
+      });
+      $('#formLogin').submit();
+
+  }
+
+  // Alternância manual
+  document.getElementById('showLogin').addEventListener('click', () => {
+    document.getElementById('cadastroView').style.display = 'none';
+    document.getElementById('loginView').style.display = 'block';
+  });
+
+  document.getElementById('showCadastro').addEventListener('click', () => {
+    document.getElementById('loginView').style.display = 'none';
+    document.getElementById('cadastroView').style.display = 'block';
+  });
+
+</script>
+
+
 </body>
 
 </html>

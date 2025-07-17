@@ -19,7 +19,7 @@ $(function () {
           console.log("✅ Resposta do cadastro:", res);
           if (res.status === 'sucesso') {
             $('#msgCadastro').html('<div class="alert alert-success">Bem-vindo, ' + res.email + '!</div>');
-            setTimeout(() => window.location.href = 'assets/php/session.php', 1000);
+            setTimeout(() => window.location.href = 'home.php', 1000);
           } else {
             $('#msgCadastro').html('<div class="alert alert-danger">' + res.mensagem + '</div>');
           }
@@ -51,7 +51,7 @@ $(function () {
           console.log("✅ Resposta do login:", res);
           if (res.status === 'sucesso') {
             $('#msgLogin').html('<div class="alert alert-success">Login realizado! Bem-vindo, ' + res.email + '.</div>');
-            setTimeout(() => window.location.href = 'assets/php/session.php', 1000);
+            setTimeout(() => window.location.href = 'home.php', 1000);
           } else {
             $('#msgLogin').html('<div class="alert alert-danger">' + res.mensagem + '</div>');
           }
