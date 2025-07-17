@@ -74,8 +74,8 @@ if (isset($_SESSION['usuario'])) {
 
         <nav id="navmenu" class="navmenu">
           <ul style="margin-right: 20px;">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">Sobre</a></li>
+            <li><a href="index.php" class="active">Home</a></li>
+            <li><a href="about.php">Sobre</a></li>
             <li><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
                 Cadastre-se
@@ -609,8 +609,8 @@ Seção: Newsletter + Depoimentos + FAQ
           <hr class="my-4" />
           <h2 class="fs-5 fw-bold mb-3">Ou tente de outras formas</h2>
           <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
-            <i class="fa fa-twitter me-2" style="font-size: 15px;"></i>
-            Cadastre-se com Twitter
+            <i class="fa fa-Google me-2" style="font-size: 15px;"></i>
+            Cadastre-se com Google
           </button>
           <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="button">
             <i class="fa fa-facebook text-primary me-2" style="font-size: 15px;"></i>

@@ -1,3 +1,13 @@
+<?php
+// --------------------------------------------------
+// INÍCIO DA SESSÃO E REDIRECIONAMENTO SE JÁ LOGADO
+// --------------------------------------------------
+session_start();
+if (isset($_SESSION['usuario'])) {
+  header('Location: home.php');
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -54,8 +64,8 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">Sobre</a></li>
+          <li><a href="index.php" class="active">Home</a></li>
+          <li><a href="about.php">Sobre</a></li>
           <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Cadastre-se
           </button>
