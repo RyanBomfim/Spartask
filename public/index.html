@@ -349,161 +349,191 @@
   <div class="br">
     <br />
   </div>
-
   <!-- =========================================
-  📋 Seção Verificação de Capacitação
-  ========================================== -->
-  <!-- =========================================
-  Seção Completa: Newsletter + Depoimentos + FAQ
+Seção: Newsletter + Depoimentos + FAQ
 ========================================== -->
-<section class="bg-light py-5">
-  <div class="container">
+  <section class=" py-5">
+    <div class="container">
 
-    <!-- Newsletter -->
-    <div class="text-center mb-5">
-      <h2 class="fw-bold mb-3">Quer receber novidades?</h2>
-      <p class="lead text-secondary mb-4">Inscreva-se para receber atualizações, ofertas e conteúdos exclusivos da SparTask.</p>
-      <form class="row justify-content-center g-2" novalidate>
-        <div class="col-sm-6 col-md-5 col-lg-4">
-          <input type="email" class="form-control form-control-lg" placeholder="Seu e-mail" required>
-          <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+
+      <!-- Depoimentos -->
+      <h2 class="text-center fw-bold mb-4"> O que dizem sobre nós</h2>
+      <div class="row g-4 mb-5 ">
+        <!-- Card 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-lg bg-white rounded-4">
+            <div class="card-body position-relative">
+              <i class="bi bi-chat-left-quote-fill text-warning fs-2 mb-3"></i>
+              <p class="card-text fst-italic">"Achei o profissional perfeito para minha casa, super recomendo!"</p>
+            </div>
+            <div class="card-footer border-0 bg-transparent text-end fw-semibold text-primary">Maria Silva</div>
+          </div>
         </div>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-warning btn-lg text-white px-4">Inscrever</button>
+        <!-- Card 2 -->
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-lg bg-white rounded-4">
+            <div class="card-body position-relative">
+              <i class="bi bi-chat-left-quote-fill text-warning fs-2 mb-3"></i>
+              <p class="card-text fst-italic">"A plataforma facilitou muito meu trabalho, com organização e agilidade."
+              </p>
+            </div>
+            <div class="card-footer border-0 bg-transparent text-end fw-semibold text-primary">João Pereira</div>
+          </div>
         </div>
-      </form>
+        <!-- Card 3 -->
+        <div class="col-md-4">
+          <div class="card h-100 border-0 shadow-lg bg-white rounded-4">
+            <div class="card-body position-relative">
+              <i class="bi bi-chat-left-quote-fill text-warning fs-2 mb-3"></i>
+              <p class="card-text fst-italic">"Atendimento rápido e profissionais de qualidade, parabéns SparTask."</p>
+            </div>
+            <div class="card-footer border-0 bg-transparent text-end fw-semibold text-primary">Ana Costa</div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- FAQ -->
+      <div class="mt-5 ">
+        <h2 class="text-center fw-bold mb-4" style="margin-top: 200px;"> Perguntas Frequentes</h2>
+        <div class="accordion" id="faqAccordion" role="tablist">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseOne" aria-expanded="false" aria-controls="faqCollapseOne">
+                Como faço para contratar um profissional?
+              </button>
+            </h2>
+            <div id="faqCollapseOne" class="accordion-collapse collapse " aria-labelledby="faqHeadingOne"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Basta criar uma conta, buscar o profissional desejado na sua região e enviar uma proposta diretamente
+                pela plataforma.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseTwo" aria-expanded="false" aria-controls="faqCollapseTwo">
+                Como me cadastrar como prestador de serviços?
+              </button>
+            </h2>
+            <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Clique no botão "Cadastre-se", preencha suas informações e aguarde a aprovação para começar a receber
+                pedidos.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseThree" aria-expanded="false" aria-controls="faqCollapseThree">
+                Posso gerenciar meus serviços e pagamentos pela plataforma?
+              </button>
+            </h2>
+            <div id="faqCollapseThree" class="accordion-collapse collapse" aria-labelledby="faqHeadingThree"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Sim! Você terá acesso a um dashboard completo para acompanhar serviços, clientes e pagamentos.
+              </div>
+            </div>
+          </div>
+
+          <!-- Novas perguntas -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseFour" aria-expanded="false" aria-controls="faqCollapseFour">
+                A plataforma é gratuita?
+              </button>
+            </h2>
+            <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Sim! Criar conta e buscar profissionais é totalmente gratuito. Algumas funcionalidades premium podem ser
+                oferecidas no futuro.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseFive" aria-expanded="false" aria-controls="faqCollapseFive">
+                Como funciona a aprovação dos prestadores?
+              </button>
+            </h2>
+            <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Após o cadastro, nossa equipe analisa os dados enviados para garantir qualidade e segurança. Você será
+                notificado por e-mail assim que for aprovado.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="faqHeadingSix">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#faqCollapseSix" aria-expanded="false" aria-controls="faqCollapseSix">
+                Posso editar meu perfil e serviços oferecidos?
+              </button>
+            </h2>
+            <div id="faqCollapseSix" class="accordion-collapse collapse" aria-labelledby="faqHeadingSix"
+              data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Sim, você pode atualizar seu perfil, fotos, descrição dos serviços e valores sempre que quiser no seu
+                painel.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- Newsletter -->
+        <div class="text-center mb-5" style="margin-top: 200px;">
+          <h2 class="fw-bold mb-3">🎉 Quer receber novidades?</h2>
+          <p class="lead text-muted mb-4">Assine para receber atualizações, promoções e novidades exclusivas da
+            <strong>SparTask</strong>.</p>
+          <form class="row justify-content-center g-2 needs-validation" novalidate>
+            <div class="col-sm-6 col-md-5 col-lg-4">
+              <input type="email" class="form-control form-control-lg rounded-pill shadow-sm"
+                placeholder="Seu melhor e-mail" required>
+              <div class="invalid-feedback text-start">Insira um e-mail válido.</div>
+            </div>
+            <div class="col-auto">
+              <button type="submit"
+                class="btn btn-warning btn-lg px-4 rounded-pill text-white shadow-sm">Inscrever-se</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
     </div>
+  </section>
 
-    <!-- Depoimentos -->
-    <h2 class="text-center fw-bold mb-4">O que dizem sobre nós</h2>
-    <div class="row g-4 mb-5">
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100 border-0">
-          <div class="card-body">
-            <i class="fa fa-quote-left fa-2x text-warning mb-3"></i>
-            <p class="card-text fst-italic">"Achei o profissional perfeito para minha casa, super recomendo!"</p>
-          </div>
-          <div class="card-footer bg-transparent border-0 text-end fw-bold text-primary">Maria Silva</div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100 border-0">
-          <div class="card-body">
-            <i class="fa fa-quote-left fa-2x text-warning mb-3"></i>
-            <p class="card-text fst-italic">"A plataforma facilitou muito meu trabalho, com organização e agilidade."</p>
-          </div>
-          <div class="card-footer bg-transparent border-0 text-end fw-bold text-primary">João Pereira</div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100 border-0">
-          <div class="card-body">
-            <i class="fa fa-quote-left fa-2x text-warning mb-3"></i>
-            <p class="card-text fst-italic">"Atendimento rápido e profissionais de qualidade, parabéns SparTask."</p>
-          </div>
-          <div class="card-footer bg-transparent border-0 text-end fw-bold text-primary">Ana Costa</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FAQ -->
-    <h2 class="text-center fw-bold mb-4">Perguntas Frequentes</h2>
-    <div class="accordion" id="faqAccordion" role="tablist">
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faqHeadingOne">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faqCollapseOne"
-            aria-expanded="true"
-            aria-controls="faqCollapseOne"
-          >
-            Como faço para contratar um profissional?
-          </button>
-        </h2>
-        <div
-          id="faqCollapseOne"
-          class="accordion-collapse collapse show"
-          aria-labelledby="faqHeadingOne"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Basta criar uma conta, buscar o profissional desejado na sua região e enviar uma proposta diretamente pela plataforma.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faqHeadingTwo">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faqCollapseTwo"
-            aria-expanded="false"
-            aria-controls="faqCollapseTwo"
-          >
-            Como me cadastrar como prestador de serviços?
-          </button>
-        </h2>
-        <div
-          id="faqCollapseTwo"
-          class="accordion-collapse collapse"
-          aria-labelledby="faqHeadingTwo"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Clique no botão "Cadastre-se", preencha suas informações e aguarde a aprovação para começar a receber pedidos.
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="faqHeadingThree">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#faqCollapseThree"
-            aria-expanded="false"
-            aria-controls="faqCollapseThree"
-          >
-            Posso gerenciar meus serviços e pagamentos pela plataforma?
-          </button>
-        </h2>
-        <div
-          id="faqCollapseThree"
-          class="accordion-collapse collapse"
-          aria-labelledby="faqHeadingThree"
-          data-bs-parent="#faqAccordion"
-        >
-          <div class="accordion-body">
-            Sim! Você terá acesso a um dashboard completo para acompanhar serviços, clientes e pagamentos.
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<script>
-  // Validação simples do formulário da newsletter
-  (() => {
-    'use strict';
-    const form = document.querySelector('section.bg-light form');
-    form.addEventListener('submit', e => {
-      if (!form.checkValidity()) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      form.classList.add('was-validated');
-    });
-  })();
-</script>
+  <script>
+    // Validação simples do formulário da newsletter
+    (() => {
+      'use strict';
+      const form = document.querySelector('section.bg-light form');
+      form.addEventListener('submit', e => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          e.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      });
+    })();
+  </script>
 
   <!-- Espaço extra -->
   <div class="br">
