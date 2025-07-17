@@ -1,3 +1,13 @@
+<?php
+// --------------------------------------------------
+// INÍCIO DA SESSÃO E REDIRECIONAMENTO SE JÁ LOGADO
+// --------------------------------------------------
+session_start();
+if (isset($_SESSION['usuario'])) {
+  header('Location: home.php');
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,6 +23,15 @@
   ========================================== -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="assets/css/session.css">
+
+
+  <!-- --------------------------------------------------
+       JAVASCRIPT EXTERNO E DEPENDÊNCIAS
+  -------------------------------------------------- -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="assets/js/auth.js" defer></script>
 
   <!-- =========================================
   🧩 Bibliotecas e Frameworks
@@ -57,9 +76,10 @@
           <ul style="margin-right: 20px;">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">Sobre</a></li>
-            <li><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Cadastre-se
-            </button></li>
+            <li><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Cadastre-se
+              </button></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -68,51 +88,6 @@
 
     <!-- Espaço para compensar o header fixo -->
     <div style="height: 70px;"></div>
-
-    <!-- =========================================
-  📢 Modal de Cadastro
-  ========================================== -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content rounded-4 shadow">
-          <div class="modal-header p-5 pb-4 border-bottom-0">
-            <h1 class="fw-bold mb-0 fs-2">Cadastre-se grátis</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-
-          <div class="modal-body p-5 pt-0">
-            <form>
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control rounded-3" id="floatingInput" placeholder="name@example.com" />
-                <label for="floatingInput">Email</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control rounded-3" id="floatingPassword" placeholder="Password" />
-                <label for="floatingPassword">Senha</label>
-              </div>
-              <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">
-                Cadastre-se
-              </button>
-              <small class="text-body-secondary">Ao se cadastrar, você aceita todos os termos.</small>
-              <hr class="my-4" />
-              <h2 class="fs-5 fw-bold mb-3">Ou tente de outras formas</h2>
-              <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
-                <i class="fa fa-twitter me-2" style="font-size: 15px;"></i>
-                Cadastre-se com Twitter
-              </button>
-              <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="button">
-                <i class="fa fa-facebook text-primary me-2" style="font-size: 15px;"></i>
-                Cadastre-se com Facebook
-              </button>
-              <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
-                <i class="fa fa-github me-2" style="font-size: 15px;"></i>
-                Cadastre-se com GitHub
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- =========================================
   📘 Seção Principal / Banner
@@ -209,7 +184,8 @@
           <h1 class="display-4 fw-bold lh-1 text-white">Quer se juntar?</h1>
           <p class="lead text-white">
             Aqui você encontra facilidade de divulgar seu serviço e um lugar seguro para administrar seus
-            trabalhos feitos e renda feita com eles, com um design fácil e acessível, além de ter o histórico dos seus
+            trabalhos feitos e renda feita com eles, com um design fácil e acessível, além de ter o histórico dos
+            seus
             serviços
             e o valor de cada um, não perca tempo e comece já a ter seu trabalho facilitado pela SparTask.
           </p>
@@ -327,7 +303,8 @@
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-4 text-white">
           Ache o profissional mais próximo de você que pode atingir suas demandas,
-          converse e agende já sua visita com algum dos nossos profissionais disponíveis no momento que melhor atende
+          converse e agende já sua visita com algum dos nossos profissionais disponíveis no momento que melhor
+          atende
           suas necessidades.
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
@@ -374,7 +351,8 @@ Seção: Newsletter + Depoimentos + FAQ
           <div class="card h-100 border-0 shadow-lg bg-white rounded-4">
             <div class="card-body position-relative">
               <i class="bi bi-chat-left-quote-fill text-warning fs-2 mb-3"></i>
-              <p class="card-text fst-italic">"A plataforma facilitou muito meu trabalho, com organização e agilidade."
+              <p class="card-text fst-italic">"A plataforma facilitou muito meu trabalho, com organização e
+                agilidade."
               </p>
             </div>
             <div class="card-footer border-0 bg-transparent text-end fw-semibold text-primary">João Pereira</div>
@@ -385,7 +363,8 @@ Seção: Newsletter + Depoimentos + FAQ
           <div class="card h-100 border-0 shadow-lg bg-white rounded-4">
             <div class="card-body position-relative">
               <i class="bi bi-chat-left-quote-fill text-warning fs-2 mb-3"></i>
-              <p class="card-text fst-italic">"Atendimento rápido e profissionais de qualidade, parabéns SparTask."</p>
+              <p class="card-text fst-italic">"Atendimento rápido e profissionais de qualidade, parabéns SparTask."
+              </p>
             </div>
             <div class="card-footer border-0 bg-transparent text-end fw-semibold text-primary">Ana Costa</div>
           </div>
@@ -408,7 +387,8 @@ Seção: Newsletter + Depoimentos + FAQ
             <div id="faqCollapseOne" class="accordion-collapse collapse " aria-labelledby="faqHeadingOne"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                Basta criar uma conta, buscar o profissional desejado na sua região e enviar uma proposta diretamente
+                Basta criar uma conta, buscar o profissional desejado na sua região e enviar uma proposta
+                diretamente
                 pela plataforma.
               </div>
             </div>
@@ -424,7 +404,8 @@ Seção: Newsletter + Depoimentos + FAQ
             <div id="faqCollapseTwo" class="accordion-collapse collapse" aria-labelledby="faqHeadingTwo"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                Clique no botão "Cadastre-se", preencha suas informações e aguarde a aprovação para começar a receber
+                Clique no botão "Cadastre-se", preencha suas informações e aguarde a aprovação para começar a
+                receber
                 pedidos.
               </div>
             </div>
@@ -456,7 +437,8 @@ Seção: Newsletter + Depoimentos + FAQ
             <div id="faqCollapseFour" class="accordion-collapse collapse" aria-labelledby="faqHeadingFour"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                Sim! Criar conta e buscar profissionais é totalmente gratuito. Algumas funcionalidades premium podem ser
+                Sim! Criar conta e buscar profissionais é totalmente gratuito. Algumas funcionalidades premium podem
+                ser
                 oferecidas no futuro.
               </div>
             </div>
@@ -472,7 +454,8 @@ Seção: Newsletter + Depoimentos + FAQ
             <div id="faqCollapseFive" class="accordion-collapse collapse" aria-labelledby="faqHeadingFive"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                Após o cadastro, nossa equipe analisa os dados enviados para garantir qualidade e segurança. Você será
+                Após o cadastro, nossa equipe analisa os dados enviados para garantir qualidade e segurança. Você
+                será
                 notificado por e-mail assim que for aprovado.
               </div>
             </div>
@@ -488,7 +471,8 @@ Seção: Newsletter + Depoimentos + FAQ
             <div id="faqCollapseSix" class="accordion-collapse collapse" aria-labelledby="faqHeadingSix"
               data-bs-parent="#faqAccordion">
               <div class="accordion-body">
-                Sim, você pode atualizar seu perfil, fotos, descrição dos serviços e valores sempre que quiser no seu
+                Sim, você pode atualizar seu perfil, fotos, descrição dos serviços e valores sempre que quiser no
+                seu
                 painel.
               </div>
             </div>
@@ -501,7 +485,8 @@ Seção: Newsletter + Depoimentos + FAQ
         <div class="text-center mb-5" style="margin-top: 200px;">
           <h2 class="fw-bold mb-3">🎉 Quer receber novidades?</h2>
           <p class="lead text-muted mb-4">Assine para receber atualizações, promoções e novidades exclusivas da
-            <strong>SparTask</strong>.</p>
+            <strong>SparTask</strong>.
+          </p>
           <form class="row justify-content-center g-2 needs-validation" novalidate>
             <div class="col-sm-6 col-md-5 col-lg-4">
               <input type="email" class="form-control form-control-lg rounded-pill shadow-sm"
@@ -566,6 +551,158 @@ Seção: Newsletter + Depoimentos + FAQ
       </ul>
     </div>
   </footer>
+
+
+  <!-- =========================================
+  📢 Modal de Cadastro
+  ========================================== -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+          <h1 class="fw-bold mb-0 fs-2">Cadastre-se grátis</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-5 pt-0">
+
+          <div class="auth-card ">
+            <!-- CADASTRO -->
+            <div id="cadastroView">
+              <form id="formCadastro">
+                <div class="form-floating mb-3">
+                  <input type="email" name="email" class="form-control" required />
+                  <label>Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" name="senha" class="form-control" required />
+                  <label>Senha</label>
+                </div>
+                <button class="w-100 mb-3 btn btn-lg btn-primary btn-emoji" type="submit">Cadastrar</button>
+                <div id="msgCadastro" class="text-center mt-2"></div>
+                <p class="text-center mt-3">Já tem uma conta? <span class="toggle-link" id="showLogin">Faça login
+                    🔑</span></p>
+              </form>
+            </div>
+
+            <!-- LOGIN -->
+            <div id="loginView" style="display: none;">
+              <h2 class="text-center mb-4">Faça seu login</h2>
+              <form id="formLogin">
+                <div class="form-floating mb-3">
+                  <input type="email" name="email" class="form-control" required />
+                  <label>Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" name="senha" class="form-control" required />
+                  <label>Senha</label>
+                </div>
+                <button class="w-100 mb-3 btn btn-lg btn-secondary btn-emoji" type="submit">Entrar</button>
+                <div id="msgLogin" class="text-center mt-2"></div>
+                <p class="text-center mt-3">Ainda não tem conta? <span class="toggle-link" id="showCadastro">Cadastre-se
+                    🧼</span></p>
+              </form>
+            </div>
+          </div>
+
+          <small class="text-body-secondary">Ao se cadastrar, você aceita todos os termos.</small>
+          <hr class="my-4" />
+          <h2 class="fs-5 fw-bold mb-3">Ou tente de outras formas</h2>
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
+            <i class="fa fa-twitter me-2" style="font-size: 15px;"></i>
+            Cadastre-se com Twitter
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="button">
+            <i class="fa fa-facebook text-primary me-2" style="font-size: 15px;"></i>
+            Cadastre-se com Facebook
+          </button>
+          <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="button">
+            <i class="fa fa-github me-2" style="font-size: 15px;"></i>
+            Cadastre-se com GitHub
+          </button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <!-- --------------------------------------------------
+     SCRIPT PARA TROCAR ENTRE LOGIN E CADASTRO
+-------------------------------------------------- -->
+  <script>
+    $('#showLogin').click(function () {
+      $('#cadastroView').hide();
+      $('#loginView').fadeIn();
+    });
+
+    $('#showCadastro').click(function () {
+      $('#loginView').hide();
+      $('#cadastroView').fadeIn();
+    });
+  </script>
+
+  <!-- --------------------------------------------------
+     OBSERVADOR DE MENSAGENS (EXIBE ALERTAS)
+-------------------------------------------------- -->
+  <script>
+    function watchMessages() {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          const target = mutation.target;
+          const text = target.textContent.trim();
+          if (text !== "") {
+            let icon = 'info';
+            const lowerText = text.toLowerCase();
+
+            if (
+              lowerText.includes('erro') ||
+              lowerText.includes('já') ||
+              lowerText.includes('senha') ||
+              lowerText.includes('inválido') ||
+              lowerText.includes('incorreto') ||
+              lowerText.includes('não')
+            ) {
+              icon = 'error';
+            } else if (
+              lowerText.includes('cadastrado com sucesso') ||
+              lowerText.includes('cadastro realizado') ||
+              lowerText.includes('login realizado') ||
+              lowerText.includes('sucesso')
+            ) {
+              icon = 'success';
+            }
+
+            Swal.fire({
+              title: 'Spartask 🧼',
+              text: text,
+              icon: icon,
+              confirmButtonText: 'OK'
+            });
+
+            target.textContent = ""; // Limpa para evitar alertas repetidos
+          }
+        });
+      });
+
+      const msgLogin = document.getElementById("msgLogin");
+      const msgCadastro = document.getElementById("msgCadastro");
+
+      if (msgLogin) observer.observe(msgLogin, { childList: true });
+      if (msgCadastro) observer.observe(msgCadastro, { childList: true });
+    }
+
+    document.addEventListener("DOMContentLoaded", watchMessages);
+  </script>
+
+  <!-- --------------------------------------------------
+     BOOTSTRAP JS
+-------------------------------------------------- -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
 
   <!-- =========================================
   📜 Script JS personalizado
