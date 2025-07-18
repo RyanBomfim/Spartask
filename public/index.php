@@ -1,5 +1,5 @@
 <?php
-// --------------------------------------------------aaaaa
+// --------------------------------------------------aaaaaa
 // INÍCIO DA SESSÃO E REDIRECIONAMENTO SE JÁ LOGADOaaaaaaaaaaaaaa
 // --------------------------------------------------a
 session_start();
