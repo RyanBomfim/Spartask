@@ -1,7 +1,7 @@
 <?php
 // --------------------------------------------------
 // INÍCIO DA SESSÃO E REDIRECIONAMENTO SE JÁ LOGADOaa
-// --------------------------------------------------
+// --------------------------------------------------a
 session_start();
 if (isset($_SESSION['usuario'])) {
   header('Location: home.php');
