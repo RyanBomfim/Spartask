@@ -1,6 +1,6 @@
 <?php
-// --------------------------------------------------aaaaaa
-// INÍCIO DA SESSÃO E REDIRECIONAMENTO SE JÁ LOGADOaaaaaaaaaaaaaa
+// -------------------------------------------------- a
+// INÍCIO DA SESSÃO E REDIRECIONAMENTO SE JÁ LOGADO
 // --------------------------------------------------a
 session_start();
 if (isset($_SESSION['usuario'])) {
