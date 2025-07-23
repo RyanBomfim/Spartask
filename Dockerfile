@@ -1,13 +1,16 @@
 FROM php:8.1-apache
 
-# Ativa mod_rewrite (caso use URLs amigáveis)
+# Ativa o mod_rewrite (útil para rotas amigáveis)
 RUN a2enmod rewrite
 
-# Copia todos os arquivos pro servidor
+# Copia todo o projeto para dentro do container
 COPY . /var/www/html/
 
-# Define permissões (opcional)
+# Altera o DocumentRoot do Apache para apontar para a pasta /public
+RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+
+# Dá permissão para leitura
 RUN chown -R www-data:www-data /var/www/html
 
-# Expõe a porta usada pelo Apache
+# Expõe a porta 80
 EXPOSE 80
