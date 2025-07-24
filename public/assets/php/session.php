@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("Location: ../index.php");
+    header("Location: assets/index.php");
     exit;
 }
 
@@ -51,8 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/sidebar-toggle.js" defer></script>
-    <link rel="stylesheet" href="../css/session.css">
+    <script src="assets/js/sidebar-toggle.js" defer></script>
+    <link rel="stylesheet" href="assets/css/session.css">
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
 <div class="d-flex flex-column flex-shrink-0 bg-body-tertiary sidebar sidebar-desktop"  role="navigation"
             aria-label="Menu lateral">
             <a href="" class="d-block p-3 link-body-emphasis text-decoration-none" title="Icon-only"
-                data-bs-toggle="tooltip" data-bs-placement="right">      <img src="../img/logo.png" width="40" height="40">
+                data-bs-toggle="tooltip" data-bs-placement="right">      <img src="assets/img/logo.png" width="40" height="40">
     </a>
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
         <li class="nav-item">
@@ -108,7 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
             <li><a class="dropdown-item" href="#">Settings</a></li>
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a href="logout.php" class="btn btn-danger btn-sm">Sair</a></li>
+            <li><a href="assets/php/logout.php" class="btn btn-danger btn-sm">Sair</a></li>
         </ul>
     </div>
 </div>
@@ -393,16 +393,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
             <?php endif; ?>
 
             <div class="mt-4">
-                <form method="post" action="logout.php">
+                <form method="post" action="assets/php/logout.php">
                     <button type="submit" class="btn btn-danger">Sair</button>
                 </form>
             </div>
         </main>
 
         <?php if ($perfilAtual === 'domestica'): ?>
-            <script src="../js/domestica.js"></script>
+            <script src="assets/js/domestica.js"></script>
         <?php elseif ($perfilAtual === 'contratante'): ?>
-            <script src="../js/contratante.js"></script>
+            <script src="assets/js/contratante.js"></script>
         <?php endif; ?>
 
         <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Ícones -->

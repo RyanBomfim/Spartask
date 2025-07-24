@@ -213,8 +213,8 @@ if (isset($_SESSION['usuario'])) {
   <div class="container py-4">
     <div class="row align-items-md-stretch">
       <div class="col-md-6">
-        <div class="h-100 p-5 text-bg-dark rounded-3">
-          <h2>Está procurando profissionais?</h2>
+        <div class="h-100 p-5 text-bg-warning rounded-3">
+          <h2 class="text-white">Está procurando profissionais?</h2>
           <p class="text-white">
             Aqui em nosso site você irá achar os mais bem avaliados da sua região e
             poderá se conectar com eles direto no site. Clique abaixo.

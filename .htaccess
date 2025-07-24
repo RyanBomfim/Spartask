@@ -1,4 +1,0 @@
-RewriteEngine On
-
-# Quando a URL for "/sessao", redireciona internamente para "assets/php/session.php"
-RewriteRule ^sessao$ spartask/assets/php/session.php [L]
