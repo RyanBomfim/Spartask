@@ -1,5 +1,5 @@
 function atualizarStatus(id, status) {
-  $.post('contratante_busca.php?acao=atualizar_status', { id, status }, function (res) {
+  $.post('assets/php/contratante_busca.php?acao=atualizar_status', { id, status }, function (res) {
     if (res.status === 'sucesso') {
       Swal.fire('Sucesso', res.mensagem, 'success').then(() => location.reload());
     } else {
@@ -24,7 +24,7 @@ function carregarTarefas() {
 }
 
 function removerTarefa(id) {
-  $.post('domestica_tarefas.php?acao=remover', { id }, function (res) {
+  $.post('assets/php/domestica_tarefas.php?acao=remover', { id }, function (res) {
     alert(res.mensagem);
     carregarTarefas();
   }, 'json');

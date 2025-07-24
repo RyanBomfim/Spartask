@@ -1,6 +1,6 @@
 function carregarMensagensContratante(pedidoId) {
   $('#chatContainerContratante').html('Carregando mensagens...');
-  $.getJSON('chat.php?acao=listar&pedido_id=' + pedidoId, function (res) {
+  $.getJSON('assets/php/chat.php?acao=listar&pedido_id=' + pedidoId, function (res) {
     if (res.status === 'sucesso') {
       let html = '';
       if (res.mensagens.length === 0) {
@@ -23,7 +23,7 @@ function carregarMensagensContratante(pedidoId) {
 $(function () {
   $('#formPedido').submit(function (e) {
     e.preventDefault();
-    $.post('contratante_busca.php?acao=fazer_pedido', $(this).serialize())
+    $.post('assets/php/contratante_busca.php?acao=fazer_pedido', $(this).serialize())
       .done(function (res) {
         if (res.status === 'sucesso') {
           Swal.fire('Pedido enviado!', res.mensagem, 'success').then(() => location.reload());
