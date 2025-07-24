@@ -58,7 +58,7 @@ $(function () {
       return;
     }
 
-    $.post('chat.php?acao=enviar', { pedido_id: pedidoId, mensagem }, function (res) {
+    $.post('assets/php/chat.php?acao=enviar', { pedido_id: pedidoId, mensagem }, function (res) {
       if (res.status === 'sucesso') {
         $('#mensagem_contratante').val('');
         carregarMensagensContratante(pedidoId);
