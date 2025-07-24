@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['usuario'])) {
-    header("Location: assets/index.php");
+    header("Location: index.php");
     exit;
 }
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
         $upd->close();
 
         $_SESSION['usuario']['perfil'] = $perfilEscolhido;
-        header('Location: session.php');
+        header('Location: home.php');
         exit;
     }
 }
