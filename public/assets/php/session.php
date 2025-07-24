@@ -67,86 +67,95 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
 
     <div class="app-container">
         <!-- Sidebar para Desktop -->
-<div class="d-flex flex-column flex-shrink-0 bg-body-tertiary sidebar sidebar-desktop"  role="navigation"
+        <div class="d-flex flex-column flex-shrink-0 bg-body-tertiary sidebar sidebar-desktop" role="navigation"
             aria-label="Menu lateral">
             <a href="" class="d-block p-3 link-body-emphasis text-decoration-none" title="Icon-only"
-                data-bs-toggle="tooltip" data-bs-placement="right">      <img src="assets/img/logo.png" width="40" height="40">
-    </a>
-    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-        <li class="nav-item">
-            <a data-target="inicio" class="nav-link active py-3 border-bottom rounded-0" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
-                <i class="fa fa-home"></i>
+                data-bs-toggle="tooltip" data-bs-placement="right"> <img src="assets/img/logo.png" width="40"
+                    height="40">
             </a>
-        </li>
-        <li>
-            <a data-target="tarefas" class="nav-link py-3 border-bottom rounded-0" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
-                <i class="fa fa-dashboard"></i>
-            </a>
-        </li>
-        <li>
-            <a data-target="chat" class="nav-link py-3 border-bottom rounded-0" title="Chat" data-bs-toggle="tooltip" data-bs-placement="right">
-                <i class="fa fa-users"></i>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Products" data-bs-toggle="tooltip">
-                <i class="fa fa-th-large"></i>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Customers" data-bs-toggle="tooltip">
-                <i class="fa fa-user-circle"></i>
-            </a>
-        </li>
-    </ul>
-    <div class="dropdown border-top">
-        <a href="#" class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
-        </a>
-        <ul class="dropdown-menu text-small shadow">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a href="assets/php/logout.php" class="btn btn-danger btn-sm">Sair</a></li>
-        </ul>
-    </div>
-</div>
-<!-- Navbar Inferior para Mobile -->
-<nav class="navbar navbar-expand d-md-none bg-body-tertiary fixed-bottom border-top mobile-bottom-nav">
-  <ul class="navbar-nav nav-justified w-100">
-    <li class="nav-item">
-      <a data-target="inicio" class="nav-link text-center active">
-        <i class="fa fa-home"></i><br>
-        <small>Home</small>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a data-target="tarefas" class="nav-link text-center">
-        <i class="fa fa-dashboard"></i><br>
-        <small>Dashboard</small>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a data-target="chat" class="nav-link text-center">
-        <i class="fa fa-users"></i><br>
-        <small>Chat</small>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a data-target="produtos" class="nav-link text-center">
-        <i class="fa fa-th-large"></i><br>
-        <small>Produtos</small>
-      </a>
-    </li>
-    <li class="nav-item">
-      <a data-target="perfil" class="nav-link text-center">
-        <i class="fa fa-user-circle"></i><br>
-        <small>Perfil</small>
-      </a>
-    </li>
-  </ul>
-</nav>
+            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+                <li class="nav-item">
+                    <a data-target="inicio" class="nav-link active py-3 border-bottom rounded-0" title="Home"
+                        data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="fa fa-home"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-target="tarefas" class="nav-link py-3 border-bottom rounded-0" title="Dashboard"
+                        data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="fa fa-dashboard"></i>
+                    </a>
+                </li>
+                <li>
+                    <a data-target="chat" class="nav-link py-3 border-bottom rounded-0" title="Chat"
+                        data-bs-toggle="tooltip" data-bs-placement="right">
+                        <i class="fa fa-users"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Products" data-bs-toggle="tooltip">
+                        <i class="fa fa-th-large"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link py-3 border-bottom rounded-0" title="Customers"
+                        data-bs-toggle="tooltip">
+                        <i class="fa fa-user-circle"></i>
+                    </a>
+                </li>
+            </ul>
+            <div class="dropdown border-top">
+                <a href="#"
+                    class="d-flex align-items-center justify-content-center p-3 link-body-emphasis text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu text-small shadow">
+                    <li><a class="dropdown-item" href="#">New project...</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a href="assets/php/logout.php" class="btn btn-danger btn-sm">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Navbar Inferior para Mobile -->
+        <nav class="navbar navbar-expand d-md-none bg-body-tertiary fixed-bottom border-top mobile-bottom-nav">
+            <ul class="navbar-nav nav-justified w-100">
+                <li class="nav-item">
+                    <a data-target="inicio" class="nav-link text-center active">
+                        <i class="fa fa-home"></i><br>
+                        <small>Home</small>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a data-target="tarefas" class="nav-link text-center">
+                        <i class="fa fa-dashboard"></i><br>
+                        <small>Dashboard</small>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a data-target="chat" class="nav-link text-center">
+                        <i class="fa fa-users"></i><br>
+                        <small>Chat</small>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a data-target="produtos" class="nav-link text-center">
+                        <i class="fa fa-th-large"></i><br>
+                        <small>Produtos</small>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a data-target="perfil" class="nav-link text-center">
+                        <i class="fa fa-user-circle"></i><br>
+                        <small>Perfil</small>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
 
 
@@ -223,180 +232,187 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
                     }
                     $stmt->close();
                     ?>
-<section class="container py-4">
-    <!-- Gerenciar tarefas -->
-    <div class="row mb-5">
-        <div class="col-12">
-            <div class="dashboard-card p-4 shadow-sm rounded-4 bg-white">
-                <h4 class="mb-4">Gerencie suas tarefas</h4>
-                <form id="formTarefa">
-                    <div class="mb-3">
-                        <input type="text" name="titulo" placeholder="Título" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <textarea name="descricao" placeholder="Descrição" class="form-control" rows="3"></textarea>
-                    </div>
-                    <div class="mb-4">
-                        <input type="date" name="data" class="form-control" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Adicionar tarefa</button>
-                </form>
-                <ul id="listaTarefas" class="list-unstyled mt-4 overflow-auto" style="max-height: 300px;"></ul>
-            </div>
-        </div>
-    </div>
+                    <section class="container py-4">
+                        <!-- Gerenciar tarefas -->
+                        <div class="row mb-5">
+                            <div class="col-12">
+                                <div class="dashboard-card p-4 shadow-sm rounded-4 bg-white">
+                                    <h4 class="mb-4">Gerencie suas tarefas</h4>
+                                    <form id="formTarefa">
+                                        <div class="mb-3">
+                                            <input type="text" name="titulo" placeholder="Título" class="form-control"
+                                                required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea name="descricao" placeholder="Descrição" class="form-control"
+                                                rows="3"></textarea>
+                                        </div>
+                                        <div class="mb-4">
+                                            <input type="date" name="data" class="form-control" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Adicionar tarefa</button>
+                                    </form>
+                                    <ul id="listaTarefas" class="list-unstyled mt-4 overflow-auto"
+                                        style="max-height: 300px;"></ul>
+                                </div>
+                            </div>
+                        </div>
 
-    <!-- Solicitações Recebidas -->
-    <div class="row">
-        <div class="col-12">
-            <div class="dashboard-card p-4 shadow-sm rounded-4 bg-white">
-                <h4 class="mb-4">Solicitações Recebidas</h4>
-                <div style="max-height: 300px; overflow-y: auto; padding-right: 6px;">
-                    <?php if (empty($pedidosRecebidos)): ?>
-                        <p class="text-muted">Nenhuma solicitação recebida até o momento.</p>
-                    <?php else: ?>
-                        <ul class="list-unstyled">
-                            <?php foreach ($pedidosRecebidos as $pedido): ?>
-                                <li class="list-group-item mb-3 border rounded-3 p-3 bg-light">
-                                    <div>
-                                        <strong>De:</strong> <?= htmlspecialchars($pedido['email_contratante']) ?><br>
-                                        <strong>Descrição:</strong> <?= htmlspecialchars($pedido['descricao']) ?><br>
-                                        <small class="text-muted">Recebido em <?= date('d/m/Y H:i', strtotime($pedido['data_pedido'])) ?></small>
-                                    </div>
-                                    <div class="mt-3">
-                                        <?php if ($pedido['status'] === 'pendente'): ?>
-                                            <button class="btn btn-success btn-sm me-2"
-                                                onclick="atualizarStatus(<?= $pedido['id'] ?>, 'aceito')">Aceitar</button>
-                                            <button class="btn btn-danger btn-sm"
-                                                onclick="atualizarStatus(<?= $pedido['id'] ?>, 'recusado')">Recusar</button>
+                        <!-- Solicitações Recebidas -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="dashboard-card p-4 shadow-sm rounded-4 bg-white">
+                                    <h4 class="mb-4">Solicitações Recebidas</h4>
+                                    <div style="max-height: 300px; overflow-y: auto; padding-right: 6px;">
+                                        <?php if (empty($pedidosRecebidos)): ?>
+                                            <p class="text-muted">Nenhuma solicitação recebida até o momento.</p>
                                         <?php else: ?>
-                                            <span class="badge bg-secondary">Status: <?= ucfirst($pedido['status']) ?></span>
+                                            <ul class="list-unstyled">
+                                                <?php foreach ($pedidosRecebidos as $pedido): ?>
+                                                    <li class="list-group-item mb-3 border rounded-3 p-3 bg-light">
+                                                        <div>
+                                                            <strong>De:</strong>
+                                                            <?= htmlspecialchars($pedido['email_contratante']) ?><br>
+                                                            <strong>Descrição:</strong>
+                                                            <?= htmlspecialchars($pedido['descricao']) ?><br>
+                                                            <small class="text-muted">Recebido em
+                                                                <?= date('d/m/Y H:i', strtotime($pedido['data_pedido'])) ?></small>
+                                                        </div>
+                                                        <div class="mt-3">
+                                                            <?php if ($pedido['status'] === 'pendente'): ?>
+                                                                <button class="btn btn-success btn-sm me-2"
+                                                                    onclick="atualizarStatus(<?= $pedido['id'] ?>, 'aceito')">Aceitar</button>
+                                                                <button class="btn btn-danger btn-sm"
+                                                                    onclick="atualizarStatus(<?= $pedido['id'] ?>, 'recusado')">Recusar</button>
+                                                            <?php else: ?>
+                                                                <span class="badge bg-secondary">Status:
+                                                                    <?= ucfirst($pedido['status']) ?></span>
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                         <?php endif; ?>
                                     </div>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
-                <!-- CHAT (somente doméstica) -->
-                <section id="chat" class="mt-4">
-                    <div class="dashboard-card d-flex flex-column" style="min-height: 400px;">
-                        <h5>Chat do Pedido</h5>
-                        <select id="pedidoSelecionado" class="form-select mb-3" aria-label="Selecione pedido">
-                            <option value="">Selecione um pedido para conversar</option>
-                            <?php foreach ($pedidosRecebidos as $pedido): ?>
-                                <option value="<?= $pedido['id'] ?>">Pedido #<?= $pedido['id'] ?> -
-                                    <?= date('d/m/Y', strtotime($pedido['data_pedido'])) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
+                    <!-- CHAT (somente doméstica) -->
+                    <section id="chat" class="mt-4">
+                        <div class="dashboard-card d-flex flex-column" style="min-height: 400px;">
+                            <h5>Chat do Pedido</h5>
+                            <select id="pedidoSelecionado" class="form-select mb-3" aria-label="Selecione pedido">
+                                <option value="">Selecione um pedido para conversar</option>
+                                <?php foreach ($pedidosRecebidos as $pedido): ?>
+                                    <option value="<?= $pedido['id'] ?>">Pedido #<?= $pedido['id'] ?> -
+                                        <?= date('d/m/Y', strtotime($pedido['data_pedido'])) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
 
-                        <div id="chatContainer" class="flex-grow-1 d-flex flex-column border rounded p-3"
-                            style="overflow-y: auto; background:#f9f9f9;">
-                            <p class="text-muted">Selecione um pedido para carregar as mensagens.</p>
+                            <div id="chatContainer" class="flex-grow-1 d-flex flex-column border rounded p-3"
+                                style="overflow-y: auto; background:#f9f9f9;">
+                                <p class="text-muted">Selecione um pedido para carregar as mensagens.</p>
+                            </div>
+
+                            <form id="formChat" style="display:none;" class="mt-3">
+                                <input type="hidden" name="pedido_id" id="pedido_id" />
+                                <textarea name="mensagem" id="mensagem" class="form-control mb-2"
+                                    placeholder="Digite sua mensagem" rows="3" required></textarea>
+                                <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                            </form>
+                        </div>
+                    </section>
+                <?php endif; ?>
+
+                <!-- Conteúdo para contratante -->
+                <?php if ($perfilAtual === 'contratante'): ?>
+                    <section id="tarefas">
+                        <?php
+                        // Buscar domésticas para lista
+                        $domesticas = [];
+                        $stmt = $conn->prepare("SELECT id, email FROM cadastro WHERE perfil = 'domestica'");
+                        $stmt->execute();
+                        $res = $stmt->get_result();
+                        while ($row = $res->fetch_assoc()) {
+                            $domesticas[] = $row;
+                        }
+                        $stmt->close();
+
+                        // Buscar pedidos feitos por esse contratante
+                        $meusPedidos = [];
+                        $stmt = $conn->prepare("SELECT p.id, p.descricao, p.data_pedido, c.email AS email_domestica, p.status FROM pedidos p JOIN cadastro c ON c.id = p.id_domestica WHERE p.id_contratante = ? ORDER BY p.data_pedido DESC");
+                        $stmt->bind_param("i", $usuarioId);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        while ($row = $result->fetch_assoc()) {
+                            $meusPedidos[] = $row;
+                        }
+                        $stmt->close();
+                        ?>
+
+                        <h2>Buscar domésticas</h2>
+                        <div id="listaDomesticas" class="list-group mb-3" style="max-height: 300px; overflow-y:auto;">
+                            <?php if (empty($domesticas)): ?>
+                                <p class="text-muted">Nenhuma doméstica cadastrada.</p>
+                            <?php else: ?>
+                                <?php foreach ($domesticas as $dom): ?>
+                                    <div class="list-group-item"><?= htmlspecialchars($dom['email']) ?></div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
 
-                        <form id="formChat" style="display:none;" class="mt-3">
-                            <input type="hidden" name="pedido_id" id="pedido_id" />
-                            <textarea name="mensagem" id="mensagem" class="form-control mb-2"
-                                placeholder="Digite sua mensagem" rows="3" required></textarea>
-                            <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                        <h3>Fazer pedido para doméstica</h3>
+                        <form id="formPedido" class="mb-5">
+                            <select name="id_domestica" id="id_domestica" class="form-select mb-2" required>
+                                <option value="">Selecione a doméstica</option>
+                                <?php foreach ($domesticas as $dom): ?>
+                                    <option value="<?= $dom['id'] ?>"><?= htmlspecialchars($dom['email']) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <textarea name="descricao" placeholder="Descreva o serviço desejado" class="form-control mb-2"
+                                required></textarea>
+                            <button type="submit" class="btn btn-primary">Enviar pedido</button>
                         </form>
-                    </div>
-                </section>
-            <?php endif; ?>
+                    </section>
 
-            <!-- Conteúdo para contratante -->
-            <?php if ($perfilAtual === 'contratante'): ?>
-                <section id="tarefas">
-                    <?php
-                    // Buscar domésticas para lista
-                    $domesticas = [];
-                    $stmt = $conn->prepare("SELECT id, email FROM cadastro WHERE perfil = 'domestica'");
-                    $stmt->execute();
-                    $res = $stmt->get_result();
-                    while ($row = $res->fetch_assoc()) {
-                        $domesticas[] = $row;
-                    }
-                    $stmt->close();
+                    <section id="chat" class="mt-5">
+                        <h2>Meus Pedidos</h2>
 
-                    // Buscar pedidos feitos por esse contratante
-                    $meusPedidos = [];
-                    $stmt = $conn->prepare("SELECT p.id, p.descricao, p.data_pedido, c.email AS email_domestica, p.status FROM pedidos p JOIN cadastro c ON c.id = p.id_domestica WHERE p.id_contratante = ? ORDER BY p.data_pedido DESC");
-                    $stmt->bind_param("i", $usuarioId);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    while ($row = $result->fetch_assoc()) {
-                        $meusPedidos[] = $row;
-                    }
-                    $stmt->close();
-                    ?>
-
-                    <h2>Buscar domésticas</h2>
-                    <div id="listaDomesticas" class="list-group mb-3" style="max-height: 300px; overflow-y:auto;">
-                        <?php if (empty($domesticas)): ?>
-                            <p class="text-muted">Nenhuma doméstica cadastrada.</p>
+                        <?php if (empty($meusPedidos)): ?>
+                            <p class="text-muted">Você ainda não fez nenhum pedido.</p>
                         <?php else: ?>
-                            <?php foreach ($domesticas as $dom): ?>
-                                <div class="list-group-item"><?= htmlspecialchars($dom['email']) ?></div>
-                            <?php endforeach; ?>
+                            <select id="pedidoSelecionadoContratante" class="form-select mb-3" aria-label="Selecione pedido">
+                                <option value="">Selecione um pedido para conversar</option>
+                                <?php foreach ($meusPedidos as $pedido): ?>
+                                    <option value="<?= $pedido['id'] ?>">Pedido #<?= $pedido['id'] ?> -
+                                        <?= date('d/m/Y', strtotime($pedido['data_pedido'])) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            <div id="chatContainerContratante"
+                                style="border: 1px solid #ccc; height: 300px; overflow-y: auto; padding: 10px; background:#fff; margin-bottom:10px;">
+                                <p>Selecione um pedido para carregar as mensagens.</p>
+                            </div>
+
+                            <form id="formChatContratante" style="display:none;">
+                                <input type="hidden" name="pedido_id" id="pedido_id_contratante" />
+                                <textarea name="mensagem" id="mensagem_contratante" class="form-control mb-2"
+                                    placeholder="Digite sua mensagem" required></textarea>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </form>
                         <?php endif; ?>
-                    </div>
+                    </section>
+                <?php endif; ?>
 
-                    <h3>Fazer pedido para doméstica</h3>
-                    <form id="formPedido" class="mb-5">
-                        <select name="id_domestica" id="id_domestica" class="form-select mb-2" required>
-                            <option value="">Selecione a doméstica</option>
-                            <?php foreach ($domesticas as $dom): ?>
-                                <option value="<?= $dom['id'] ?>"><?= htmlspecialchars($dom['email']) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <textarea name="descricao" placeholder="Descreva o serviço desejado" class="form-control mb-2"
-                            required></textarea>
-                        <button type="submit" class="btn btn-primary">Enviar pedido</button>
+                <div class="mt-4">
+                    <form method="post" action="assets/php/logout.php">
+                        <button type="submit" class="btn btn-danger">Sair</button>
                     </form>
-                </section>
-
-                <section id="chat" class="mt-5">
-                    <h2>Meus Pedidos</h2>
-
-                    <?php if (empty($meusPedidos)): ?>
-                        <p class="text-muted">Você ainda não fez nenhum pedido.</p>
-                    <?php else: ?>
-                        <select id="pedidoSelecionadoContratante" class="form-select mb-3" aria-label="Selecione pedido">
-                            <option value="">Selecione um pedido para conversar</option>
-                            <?php foreach ($meusPedidos as $pedido): ?>
-                                <option value="<?= $pedido['id'] ?>">Pedido #<?= $pedido['id'] ?> -
-                                    <?= date('d/m/Y', strtotime($pedido['data_pedido'])) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-
-                        <div id="chatContainerContratante"
-                            style="border: 1px solid #ccc; height: 300px; overflow-y: auto; padding: 10px; background:#fff; margin-bottom:10px;">
-                            <p>Selecione um pedido para carregar as mensagens.</p>
-                        </div>
-
-                        <form id="formChatContratante" style="display:none;">
-                            <input type="hidden" name="pedido_id" id="pedido_id_contratante" />
-                            <textarea name="mensagem" id="mensagem_contratante" class="form-control mb-2"
-                                placeholder="Digite sua mensagem" required></textarea>
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                        </form>
-                    <?php endif; ?>
-                </section>
-            <?php endif; ?>
-
-            <div class="mt-4">
-                <form method="post" action="assets/php/logout.php">
-                    <button type="submit" class="btn btn-danger">Sair</button>
-                </form>
-            </div>
+                </div>
         </main>
 
         <?php if ($perfilAtual === 'domestica'): ?>
@@ -409,21 +425,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <script>
-          $(function () {
-  // Sidebar e navbar mobile - troca de section
-  $('.sidebar .nav-link, .mobile-bottom-nav .nav-link').click(function (e) {
-    e.preventDefault();
+            $(function () {
+                // Sidebar e navbar mobile - troca de section
+                $('.sidebar .nav-link, .mobile-bottom-nav .nav-link').click(function (e) {
+                    e.preventDefault();
 
-    // Remove active de todos os botões (desktop e mobile)
-    $('.sidebar .nav-link, .mobile-bottom-nav .nav-link').removeClass('active');
-    $(this).addClass('active');
+                    // Remove active de todos os botões (desktop e mobile)
+                    $('.sidebar .nav-link, .mobile-bottom-nav .nav-link').removeClass('active');
+                    $(this).addClass('active');
 
-    // Pega o target e troca a section
-    const target = $(this).data('target');
-    $('main > section').removeClass('active').hide();
-    $('#' + target).fadeIn(300).addClass('active');
-  });
-});
+                    // Pega o target e troca a section
+                    const target = $(this).data('target');
+                    $('main > section').removeClass('active').hide();
+                    $('#' + target).fadeIn(300).addClass('active');
+                });
+            });
 
         </script>
 
