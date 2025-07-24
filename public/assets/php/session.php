@@ -421,7 +421,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
             <script src="assets/js/contratante.js"></script>
         <?php endif; ?>
 
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Ícones -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
         <script>
