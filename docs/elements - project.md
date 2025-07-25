@@ -1,0 +1,2 @@
+Itens utilizados:
+- Sweet Alert
