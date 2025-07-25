@@ -1,3 +1,8 @@
+    Linguagem:
+- PHP (principal);
+
+
     Itens utilizados:
+
 - Sweet Alert;
 - Bootstrap 5.3;
