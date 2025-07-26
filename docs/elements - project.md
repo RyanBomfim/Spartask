@@ -1,6 +1,7 @@
     Linguagem:
 - PHP (principal);
 - Javascript;
+- SQL;
 
 
         Itens utilizados:
