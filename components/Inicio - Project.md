@@ -1,10 +1,11 @@
     Linguagem:
+
 - PHP (principal);
 - Javascript (JQUERy e Ajax);
--
+- SQL.
 
 
-        Itens utilizados:
+    Itens utilizados:
 
 - Jquery;
 - Sweet Alert;
