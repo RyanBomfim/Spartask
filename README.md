@@ -1,4 +1,4 @@
-![Tela inicial](public/assets/img/logo.png)
+![Tela inicial](public/assets/img/banner-logo-spartask.png)
 
 # SparTask - TCC da ETEC
 
