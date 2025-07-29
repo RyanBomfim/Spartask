@@ -1,5 +1,7 @@
     Linguagem:
 - PHP (principal);
+- Javascript (JQUERy e Ajax);
+-
 
 
         Itens utilizados:
