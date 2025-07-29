@@ -1,92 +1,55 @@
-# 🧹 SparTask
+![Tela inicial](public/assets/img/logo.png)
 
-**SparTask** é um sistema web desenvolvido como Trabalho de Conclusão de Curso (TCC) do curso técnico em **Informática para Internet**, com o objetivo de **conectar contratantes e profissionais domésticas**, organizando a distribuição de tarefas de forma simples, colaborativa e responsiva.
+# SparTask - TCC da ETEC
 
----
+Este é o repositório do meu projeto do trabalho de conclusão.
 
-## 📌 Objetivo
+## 📌 Sobre
 
-A proposta do SparTask é facilitar o contato entre pessoas que precisam de ajuda com tarefas domésticas e profissionais disponíveis para realizá-las, oferecendo uma plataforma intuitiva para o gerenciamento, atribuição e acompanhamento dessas atividades.
+O site foi desenvolvido com foco em simplicidade, acessibilidade e design moderno. Ele inclui:
+- Seção "Sobre Mim"
+- Lista dos melhores websites desenvolvidos
+- Seção de habilidades técnicas
+- Contato via WhatsApp
 
----
+## 🗂 Estrutura do Projeto
+```
+/assets
+├── css
+│ └── style.css # Estilos personalizados
+├── img
+│ └── logo.png # Imagens e logos usados no site
+└── js
+└── script.js # Scripts JavaScript para interatividade
 
-## 💻 Tecnologias Utilizadas
+index.html # Página principal do portfólio
+README.md # Documentação do projeto
 
-- HTML5, CSS3 e JavaScript
-- PHP puro
-- Bootstrap 5.3
-- Google Fonts (Lexend, Montserrat)
-- MySQL
-- XAMPP (ambiente de desenvolvimento)
+```
+## 🛠️ Tecnologias Utilizadas
 
----
+- HTML5
+- CSS3
+- Bootstrap 4.1
+- JavaScript
+- Font Awesome
+- V-Libras (acessibilidade)
+- acsbJS (acessibilidade avançada)
 
-## ⚙️ Funcionalidades
+## 💻 Projetos em Destaque
 
-- Cadastro e login de usuários (contratantes e domésticas)
-- Criação e listagem de tarefas
-- Atribuição de tarefas para profissionais disponíveis
-- Painel administrativo (em desenvolvimento)
-- Layout responsivo para dispositivos móveis
+- **SpartoiZ** – Plataforma fictícia inspirada no estilo Spartan.
+- **SparTask** – Sistema de gerenciamento de serviços domésticos.
+- **Dubelato** – Projeto de vitrine fictício para portfólio.
 
----
+## 🔗 Visualização Online
 
-## 🗂️ Estrutura do Projeto
+Você pode acessar o site online [clicando aqui](https://spartacusz.vercel.app)
 
-spartask/
-├── assets/
-│ ├── css/
-│ ├── js/
-│ └── php/
-├── public/
-│ └── index.php
-├── database/
-│ └── spar.sql
-├── .htaccess
-└── README.md
+## 📱 Contato
 
-yaml
-Copiar
-Editar
+Entre em contato diretamente pelo [WhatsApp](https://wa.me/5513996061925)
 
----
+## 🧩 Licença
 
-## 🚀 Como Executar
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/spartask.git
-Coloque o projeto dentro da pasta htdocs do XAMPP
-
-Importe o banco de dados (database/spar.sql) no phpMyAdmin
-
-Acesse no navegador:
-
-arduino
-Copiar
-Editar
-http://localhost/spartask/public
-👨‍💻 Autor
-Ryan Bomfim
-Técnico em Informática para Internet – ETEC
-Desenvolvedor Fullstack em formação
-
-📄 Licença
-Este projeto é de uso educacional e sem fins comerciais.
-
-yaml
-Copiar
-Editar
-
----
-
-Se quiser, posso gerar esse arquivo já pronto para você colar no projeto. Deseja que eu faça isso?
-
-
-
-
-
-
-
-
-Perguntar ao ChatGPT
+Este projeto está sob a licença MIT.
