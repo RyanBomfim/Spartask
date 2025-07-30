@@ -9,7 +9,7 @@ function atualizarStatus(id, status) {
 }
 
 function carregarTarefas() {
-  $.getJSON('domestica_tarefas.php?acao=listar', function (res) {
+  $.getJSON('assets/php/domestica_tarefas.php?acao=listar', function (res) {
     if (res.status === 'sucesso') {
       let html = '';
       res.tarefas.forEach(t => {
@@ -32,7 +32,7 @@ function removerTarefa(id) {
 
 function carregarMensagens(pedidoId) {
   $('#chatContainer').html('<p>Carregando mensagens...</p>');
-  $.getJSON('chat.php?acao=listar&pedido_id=' + pedidoId, function (res) {
+  $.getJSON('assets/php/chat.php?acao=listar&pedido_id=' + pedidoId, function (res) {
     if (res.status === 'sucesso') {
       let html = '';
       if (res.mensagens.length === 0) {
@@ -59,7 +59,7 @@ $(function () {
 
   $('#formTarefa').submit(function (e) {
     e.preventDefault();
-    $.post('domestica_tarefas.php?acao=adicionar', $(this).serialize(), function (res) {
+    $.post('assets/php/domestica_tarefas.php?acao=adicionar', $(this).serialize(), function (res) {
       alert(res.mensagem);
       if (res.status === 'sucesso') {
         $('#formTarefa')[0].reset();
@@ -90,7 +90,7 @@ $(function () {
       return;
     }
 
-    $.post('chat.php?acao=enviar', { pedido_id: pedidoId, mensagem }, function (res) {
+    $.post('assets/php/chat.php?acao=enviar', { pedido_id: pedidoId, mensagem }, function (res) {
       if (res.status === 'sucesso') {
         $('#mensagem').val('');
         carregarMensagens(pedidoId);
