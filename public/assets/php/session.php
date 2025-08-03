@@ -416,7 +416,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
         </main>
 
         <?php if ($perfilAtual === 'domestica'): ?>
-<script src="/spartask-pro/spartask/public/assets/js/domestica.js" ></script>
+            <script src="../public/assets/js/domestica.js"></script>
         <?php elseif ($perfilAtual === 'contratante'): ?>
             <script src="assets/js/contratante.js"></script>
         <?php endif; ?>
