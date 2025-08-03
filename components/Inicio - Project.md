@@ -1,14 +1,18 @@
-    Linguagem:
+    Especiais
+
+- Firebase (Google);
+- Integração IA.
+
+    Linguagem
 
 - PHP (principal);
 - Javascript (JQUERy e Ajax);
 - SQL.
 
 
-    Itens utilizados:
+    Itens utilizados
 
 - Jquery;
 - Sweet Alert;
 - Bootstrap 5.3;
-- Firebase (Google);
 - Font Awesome;
