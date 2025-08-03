@@ -6,9 +6,9 @@
     Linguagem
 
 - PHP (principal);
-- Javascript (JQUERy e Ajax);
+- Javascript (Jquery e Ajax);
+- Python;
 - SQL.
-
 
     Itens utilizados
 
