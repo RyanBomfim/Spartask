@@ -4,23 +4,28 @@
 
 Este é o repositório do meu projeto do trabalho de conclusão.
 
-## 📌 Sobre
+## Sobre
 
-O site foi desenvolvido com foco em simplicidade, acessibilidade e design moderno. Ele inclui:
-- Seção "Sobre Mim"
-- Lista dos melhores websites desenvolvidos
-- Seção de habilidades técnicas
-- Contato via WhatsApp
+O site é baseado em um sistema que facilita a rotina dos profissionais de limpeza domiciliar e também auxilia os potenciais clientes a adquirirem esses serviços. Ele serve tanto para a divulgação dos serviços prestados quanto para o gerenciamento de tarefas e dashboards, incluindo um chat interativo com o cliente.
+
 
 ## 🗂 Estrutura do Projeto
 ```
 /assets
 ├── css
-│ └── style.css # Estilos personalizados
+│ └── style.css # Estilos
+│ └── session.css # Estilos para a aba home.php
 ├── img
-│ └── logo.png # Imagens e logos usados no site
+│ └── # Imagens e logos usados no site
+├── PHP
+│ └── # Onde eu guardo todos os includes do PHP
 └── js
 └── script.js # Scripts JavaScript para interatividade
+
+/public
+│ └── about.php # Sobre nós
+│ └── index.php # Página Principal
+│ └── home.css # Para usuarios cadastrados
 
 index.html # Página principal do portfólio
 README.md # Documentação do projeto
@@ -30,21 +35,16 @@ README.md # Documentação do projeto
 
 - HTML5
 - CSS3
-- Bootstrap 4.1
+- Bootstrap 5.3
+- PHP
 - JavaScript
 - Font Awesome
 - V-Libras (acessibilidade)
 - acsbJS (acessibilidade avançada)
 
-## 💻 Projetos em Destaque
-
-- **SpartoiZ** – Plataforma fictícia inspirada no estilo Spartan.
-- **SparTask** – Sistema de gerenciamento de serviços domésticos.
-- **Dubelato** – Projeto de vitrine fictício para portfólio.
-
 ## 🔗 Visualização Online
 
-Você pode acessar o site online [clicando aqui](https://spartacusz.vercel.app)
+Você pode acessar o site online [clicando aqui](https://spartask.onrender.com)
 
 ## 📱 Contato
 

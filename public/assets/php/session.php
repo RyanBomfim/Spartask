@@ -5,6 +5,7 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
+
 require_once 'config/config.php';
 
 $usuarioId = $_SESSION['usuario']['id'];
@@ -53,21 +54,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/sidebar-toggle.js" defer></script>
     <link rel="stylesheet" href="assets/css/session.css">
-
-    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/12a0142524.js" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
 <body>
 
-
-
     <div class="app-container">
         <!-- Sidebar para Desktop -->
-        <div class="d-flex flex-column flex-shrink-0 bg-body-tertiary sidebar sidebar-desktop" role="navigation"
+        <div class="d-flex flex-column flex-shrink-0 bg-body-tertiary border sidebar sidebar-desktop" role="navigation"
             aria-label="Menu lateral">
             <a href="" class="d-block p-3 link-body-emphasis text-decoration-none" title="Icon-only"
                 data-bs-toggle="tooltip" data-bs-placement="right"> <img src="assets/img/logo.png" width="40"
@@ -157,14 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
             </ul>
         </nav>
 
-
-
-
         <main class="container" role="main" tabindex="0">
-            <!-- INÍCIO -->
             <section id="inicio" class="active">
-                <h1 class="mb-4 text-center">Bem-vindo, <?= htmlspecialchars($usuarioEmail) ?>!</h1>
-
                 <?php if (!$perfilAtual): ?>
                     <!-- Escolha de perfil -->
                     <div class="text-center mb-5">
@@ -183,7 +172,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-md-4">
                                 <div class="card perfil-card"
                                     onclick="document.getElementById('perfil_contratante').click();">
@@ -197,33 +185,107 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
                                     </div>
                                 </div>
                             </div>
-
                             <div class="col-12 mt-4">
                                 <button type="submit" class="btn btn-primary btn-lg px-5">Confirmar Escolha</button>
                             </div>
                         </form>
                     </div>
-                <?php else: ?>
-                    <div class="alert alert-success text-center">
-                        Seu perfil está definido como: <strong><?= htmlspecialchars(ucfirst($perfilAtual)) ?></strong>
+
+                <?php else: ?><!-- É como se voce estivesse na primeira pagina -->
+                    <div class="container p-3">
+                        <h3 class="display-5">Dashboard</h3>
                     </div>
-                    <p>Use a sidebar para navegar pelas suas funcionalidades.</p>
+                    <?php
+
+                    $sql = "SELECT id,email, perfil FROM cadastro WHERE id = $usuarioId";
+                    $resultado = $conn->query($sql);
+                    if ($resultado->num_rows > 0) {
+                        while ($row = $resultado->fetch_assoc()) {
+                            if ($row["perfil"] = "contratante") {
+
+                                $sql = "SELECT
+    COUNT(*) AS total_pedidos,
+    COUNT(CASE WHEN status = 'aceito' THEN 1 END) AS pedidos_aceitos,
+    COUNT(CASE WHEN status = 'recusado' THEN 1 END) AS pedidos_rejeitados
+FROM pedidos
+ WHERE id_contratante = $usuarioId";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                    $row = $result->fetch_assoc();
+                                    echo '<div class="row g-3">
+    <!-- Card 1 -->
+    <div class="col-md-3">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Pedidos</h5>
+                <p class="card-text display-6">
+                ' . $row['total_pedidos'] . '
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-3">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Aceitos</h5>
+                <p class="card-text display-6">' . $row['pedidos_aceitos'] . '</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-3">
+        <div class="card text-white bg-danger">
+            <div class="card-body">
+                <h5 class="card-title">Recusados</h5>
+                <p class="card-text display-6">' . $row['pedidos_rejeitados'] . '</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-md-3">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Produtos</h5>
+                <p class="card-text display-6">48</p>
+            </div>
+        </div>
+    </div>
+</div>
+';
+
+                                } else {
+                                    echo "Nenhum pedido encontrado.";
+                                }
+
+
+                            }
+                        }
+                    } else {
+                        $usuarioEmail = 'Usuário não encontrado';
+                    }
+
+
+
+                    ?>
                 <?php endif; ?>
+
             </section>
 
-            <!-- TAREFAS (somente para doméstica) -->
+            <!-- Perfil Doméstica -->
             <?php if ($perfilAtual === 'domestica'): ?>
                 <section id="tarefas">
                     <?php
-                    // Buscar pedidos recebidos por essa doméstica
                     $pedidosRecebidos = [];
-                    $stmt = $conn->prepare("
-          SELECT p.id, p.descricao, p.data_pedido, c.email AS email_contratante, p.status
-          FROM pedidos p
-          JOIN cadastro c ON c.id = p.id_contratante
-          WHERE p.id_domestica = ?
-          ORDER BY p.data_pedido DESC
-        ");
+                    $stmt = $conn->prepare("SELECT p.id, p.descricao, p.data_pedido, c.email AS email_contratante, p.status
+                    FROM pedidos p
+                    JOIN cadastro c ON c.id = p.id_contratante
+                    WHERE p.id_domestica = ?
+                    ORDER BY p.data_pedido DESC");
                     $stmt->bind_param("i", $usuarioId);
                     $stmt->execute();
                     $result = $stmt->get_result();
@@ -326,87 +388,128 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$perfilAtual) {
                         </div>
                     </section>
                 <?php endif; ?>
+<!-- Perfil Contratante -->
+<?php if ($perfilAtual === 'contratante'): ?>
+    <section id="tarefas">
+        <?php
+        // Buscar domésticas para lista
+        $domesticas = [];
+        $stmt = $conn->prepare("SELECT id, email FROM cadastro WHERE perfil = 'domestica'");
+        $stmt->execute();
+        $res = $stmt->get_result();
+        while ($row = $res->fetch_assoc()) {
+            $domesticas[] = $row;
+        }
+        $stmt->close();
 
-                <!-- Conteúdo para contratante -->
-                <?php if ($perfilAtual === 'contratante'): ?>
-                    <section id="tarefas">
-                        <?php
-                        // Buscar domésticas para lista
-                        $domesticas = [];
-                        $stmt = $conn->prepare("SELECT id, email FROM cadastro WHERE perfil = 'domestica'");
-                        $stmt->execute();
-                        $res = $stmt->get_result();
-                        while ($row = $res->fetch_assoc()) {
-                            $domesticas[] = $row;
-                        }
-                        $stmt->close();
+        // Buscar pedidos feitos por esse contratante
+        $meusPedidos = [];
+        $stmt = $conn->prepare("SELECT p.id, p.descricao, p.data_pedido, c.email AS email_domestica, p.status, p.codigo_confirmacao FROM pedidos p JOIN cadastro c ON c.id = p.id_domestica WHERE p.id_contratante = ? ORDER BY p.data_pedido DESC");
+        $stmt->bind_param("i", $usuarioId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
+            $meusPedidos[] = $row;
+        }
+        $stmt->close();
+        ?>
 
-                        // Buscar pedidos feitos por esse contratante
-                        $meusPedidos = [];
-                        $stmt = $conn->prepare("SELECT p.id, p.descricao, p.data_pedido, c.email AS email_domestica, p.status FROM pedidos p JOIN cadastro c ON c.id = p.id_domestica WHERE p.id_contratante = ? ORDER BY p.data_pedido DESC");
-                        $stmt->bind_param("i", $usuarioId);
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-                        while ($row = $result->fetch_assoc()) {
-                            $meusPedidos[] = $row;
-                        }
-                        $stmt->close();
-                        ?>
+        <h2>Buscar domésticas</h2>
+        <div id="listaDomesticas" class="list-group mb-3" style="max-height: 300px; overflow-y:auto;">
+            <?php if (empty($domesticas)): ?>
+                <p class="text-muted">Nenhuma doméstica cadastrada.</p>
+            <?php else: ?>
+                <?php foreach ($domesticas as $dom): ?>
+                    <div class="list-group-item"><?= htmlspecialchars($dom['email']) ?></div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
 
-                        <h2>Buscar domésticas</h2>
-                        <div id="listaDomesticas" class="list-group mb-3" style="max-height: 300px; overflow-y:auto;">
-                            <?php if (empty($domesticas)): ?>
-                                <p class="text-muted">Nenhuma doméstica cadastrada.</p>
-                            <?php else: ?>
-                                <?php foreach ($domesticas as $dom): ?>
-                                    <div class="list-group-item"><?= htmlspecialchars($dom['email']) ?></div>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
+        <h3>Fazer pedido para doméstica</h3>
+        <form id="formPedido" class="mb-5">
+            <select name="id_domestica" id="id_domestica" class="form-select mb-2" required>
+                <option value="">Selecione a doméstica</option>
+                <?php foreach ($domesticas as $dom): ?>
+                    <option value="<?= $dom['id'] ?>"><?= htmlspecialchars($dom['email']) ?></option>
+                <?php endforeach; ?>
+            </select>
+            <textarea name="descricao" placeholder="Descreva o serviço desejado" class="form-control mb-2" required></textarea>
+            <button type="submit" class="btn btn-primary">Enviar pedido</button>
+        </form>
+    </section>
 
-                        <h3>Fazer pedido para doméstica</h3>
-                        <form id="formPedido" class="mb-5">
-                            <select name="id_domestica" id="id_domestica" class="form-select mb-2" required>
-                                <option value="">Selecione a doméstica</option>
-                                <?php foreach ($domesticas as $dom): ?>
-                                    <option value="<?= $dom['id'] ?>"><?= htmlspecialchars($dom['email']) ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <textarea name="descricao" placeholder="Descreva o serviço desejado" class="form-control mb-2"
-                                required></textarea>
-                            <button type="submit" class="btn btn-primary">Enviar pedido</button>
-                        </form>
-                    </section>
+    <section id="chat" class="mt-5">
+        <h2>Meus Pedidos</h2>
 
-                    <section id="chat" class="mt-5">
-                        <h2>Meus Pedidos</h2>
+        <?php if (empty($meusPedidos)): ?>
+            <p class="text-muted">Você ainda não fez nenhum pedido.</p>
+        <?php else: ?>
+            <select id="pedidoSelecionadoContratante" class="form-select mb-3" aria-label="Selecione pedido">
+                <option value="">Selecione um pedido para conversar ou concluir</option>
+                <?php foreach ($meusPedidos as $pedido): ?>
+                    <option value="<?= $pedido['id'] ?>" data-codigo="<?= $pedido['codigo_confirmacao'] ?>">
+                        Pedido #<?= $pedido['id'] ?> - <?= date('d/m/Y', strtotime($pedido['data_pedido'])) ?> - Status: <?= $pedido['status'] ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
 
-                        <?php if (empty($meusPedidos)): ?>
-                            <p class="text-muted">Você ainda não fez nenhum pedido.</p>
-                        <?php else: ?>
-                            <select id="pedidoSelecionadoContratante" class="form-select mb-3" aria-label="Selecione pedido">
-                                <option value="">Selecione um pedido para conversar</option>
-                                <?php foreach ($meusPedidos as $pedido): ?>
-                                    <option value="<?= $pedido['id'] ?>">Pedido #<?= $pedido['id'] ?> -
-                                        <?= date('d/m/Y', strtotime($pedido['data_pedido'])) ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
+            <div id="chatContainerContratante" style="border: 1px solid #ccc; height: 300px; overflow-y: auto; padding: 10px; background:#fff; margin-bottom:10px;">
+                <p>Selecione um pedido para carregar as mensagens.</p>
+            </div>
 
-                            <div id="chatContainerContratante"
-                                style="border: 1px solid #ccc; height: 300px; overflow-y: auto; padding: 10px; background:#fff; margin-bottom:10px;">
-                                <p>Selecione um pedido para carregar as mensagens.</p>
-                            </div>
+            <form id="formChatContratante" style="display:none;">
+                <input type="hidden" name="pedido_id" id="pedido_id_contratante" />
+                <textarea name="mensagem" id="mensagem_contratante" class="form-control mb-2" placeholder="Digite sua mensagem" required></textarea>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
 
-                            <form id="formChatContratante" style="display:none;">
-                                <input type="hidden" name="pedido_id" id="pedido_id_contratante" />
-                                <textarea name="mensagem" id="mensagem_contratante" class="form-control mb-2"
-                                    placeholder="Digite sua mensagem" required></textarea>
-                                <button type="submit" class="btn btn-primary">Enviar</button>
-                            </form>
-                        <?php endif; ?>
-                    </section>
-                <?php endif; ?>
+            <!-- Novo formulário para concluir pedido -->
+            <form id="formConcluirPedido" class="mt-4">
+                <h4>Concluir Pedido com Código de Confirmação</h4>
+                <input type="hidden" id="pedido_id_confirmar" name="pedido_id">
+                <div class="mb-2">
+                    <label for="codigo_confirmacao">Código de Confirmação:</label>
+                    <input type="text" id="codigo_confirmacao" name="codigo_confirmacao" class="form-control" placeholder="Digite o código recebido da doméstica" required>
+                </div>
+                <button type="submit" class="btn btn-success">Concluir Pedido</button>
+                <div id="resultadoConfirmacao" class="mt-2"></div>
+            </form>
+
+            <script>
+                const pedidoSelect = document.getElementById('pedidoSelecionadoContratante');
+                const pedidoIdConfirmar = document.getElementById('pedido_id_confirmar');
+
+                pedidoSelect.addEventListener('change', () => {
+                    pedidoIdConfirmar.value = pedidoSelect.value;
+                });
+
+                document.getElementById('formConcluirPedido').addEventListener('submit', function(e){
+                    e.preventDefault();
+                    const pedidoId = pedidoIdConfirmar.value;
+                    const codigo = document.getElementById('codigo_confirmacao').value;
+
+                    if(!pedidoId || !codigo){
+                        alert("Selecione um pedido e insira o código.");
+                        return;
+                    }
+
+                    fetch('assets/php/confirmar_servico.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `pedido_id=${pedidoId}&codigo=${codigo}`
+                    })
+                    .then(res => res.text())
+                    .then(data => {
+                        document.getElementById('resultadoConfirmacao').innerHTML = data;
+                        // Opcional: atualizar status no select
+                        const option = pedidoSelect.querySelector(`option[value="${pedidoId}"]`);
+                        if(option) option.text += " - Concluído";
+                    });
+                });
+            </script>
+        <?php endif; ?>
+    </section>
+<?php endif; ?>
 
                 <div class="mt-4">
                     <form method="post" action="assets/php/logout.php">

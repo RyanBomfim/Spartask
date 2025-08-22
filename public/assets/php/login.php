@@ -38,4 +38,6 @@ if ($senha !== $senha_bd) {
 $_SESSION['usuario'] = ['id' => $id, 'email' => $email];
 $_SESSION['perfil'] = $perfil;
 
+
 echo json_encode(['status' => 'sucesso', 'email' => $email]);
+
