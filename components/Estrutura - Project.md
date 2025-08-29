@@ -1,4 +1,4 @@
-10986\54--> Components
+--> Components
 --> Public
     --> Assets
         --> CSS
@@ -11,8 +11,6 @@
 
 -- Readme.md
 
-1
-23
 
 
 
