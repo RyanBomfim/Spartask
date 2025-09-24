@@ -4,7 +4,7 @@
 
 ---
 
-## 📖 Sobre o Projeto
+## Sobre o Projeto
 O **SparTask** é um sistema desenvolvido como **Trabalho de Conclusão de Curso (TCC)** da ETEC.
 Ele foi criado para **facilitar a rotina dos profissionais de limpeza domiciliar** e **auxiliar clientes** que desejam contratar esses serviços.
 
@@ -74,7 +74,3 @@ Você pode acessar o site online 👉 SparTask no Render
 
 Este projeto está sob a licença MIT.
 
-
----
-
-👉 Quer que eu também crie a **versão com preview de telas (print da interface)**, igual se faz em projetos de portfólio no GitHub?
