@@ -3,18 +3,18 @@
 - Firebase (Google);
 - Integração IA.
 
-    Linguagem
+      Linguagem
 
 - PHP (principal);
 - Javascript (Jquery e Ajax);
 - Python;
 - SQL.
 
-    Itens utilizados
+        Itens utilizados
 
 - Jquery;
 - Sweet Alert;
 - Bootstrap 5.3;
 - Font Awesome;
 
-14 15
+Andamento - Fazer upgrade no visual da area de usuario
